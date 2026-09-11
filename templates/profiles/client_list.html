@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes — Zpasio{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Clientes</h1>
+
+{% if clients %}
+    <ul class="client-list">
+        {% for client in clients %}
+            <li>
+                <a href="{% url 'profiles:client_detail' client.username %}">
+                    {{ client.full_name|default:client.username }}
+                </a>
+                <span class="muted">(@{{ client.username }})</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="note">No hay clientes registrados.</p>
+{% endif %}
+{% endblock %}

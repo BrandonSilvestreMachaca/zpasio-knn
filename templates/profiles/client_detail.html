@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de cliente — Zpasio{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <h2>{{ client.full_name|default:client.username }}</h2>
+    <span class="role-tag">{{ client.get_role_display }}</span>
+</div>
+
+<div class="card-section">
+    <h3>Datos personales</h3>
+    <ul class="data-list">
+        <li><span class="label">Usuario</span><span class="value">{{ client.username }}</span></li>
+        <li><span class="label">Correo</span><span class="value">{{ client.email }}</span></li>
+        {% if profile %}
+            <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
+            <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
+            <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
+            <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
+            <li><span class="label">Experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
+        {% endif %}
+    </ul>
+</div>
+
+{% if physical_data %}
+    <div class="card-section">
+        <h3>Datos físicos</h3>
+        <ul class="data-list">
+            <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
+            <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
+            <li><span class="label">IMC</span><span class="value">{{ physical_data.bmi }}</span></li>
+        </ul>
+    </div>
+{% endif %}
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'profiles:client_list' %}">Volver a la lista</a>
+</div>
+{% endblock %}

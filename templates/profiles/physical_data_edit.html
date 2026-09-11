@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Datos físicos — Zpasio{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Editar datos físicos</h1>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Guardar</button>
+    <p class="btn-link"><a href="{% url 'profiles:detail' %}">Cancelar</a></p>
+</form>
+
+<p class="note">El IMC se calcula automáticamente a partir del peso y la altura.</p>
+{% endblock %}

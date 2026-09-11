@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+/media/
+/staticfiles/
+
+# Variables de entorno (contienen secretos)
+.env
+
+# SQLite (no usado en producción, pero evita subirlo por accidente)
+*.sqlite3
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_StoreZpasio.zip

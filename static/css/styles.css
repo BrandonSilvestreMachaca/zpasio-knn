@@ -1,0 +1,531 @@
+/* ==========================================================================
+   Zpasio — Hoja de estilos global
+   Paleta: fondo negro, superficies gris oscuro/medio, texto claro,
+   rojo como color de acento. Diseño deportivo, centrado y simétrico.
+   ========================================================================== */
+
+:root {
+    --background: #0a0a0b;
+    --surface: #16161a;
+    --surface-secondary: #1f2026;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --accent: #e11d2e;
+    --accent-hover: #b91320;
+    --border: #2a2c34;
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+    --max-form: 440px;
+    --max-content: 880px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Barra de navegación ---------- */
+
+.navbar {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.brand .brand-accent {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.nav-user {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+.nav-logout {
+    margin: 0;
+}
+
+.link-button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-sm);
+}
+
+.link-button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ---------- Contenedor principal ---------- */
+
+.container {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 180px);
+}
+
+/* ---------- Tarjetas / surfaces ---------- */
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    max-width: var(--max-form);
+    margin: 0 auto;
+}
+
+.card-wide {
+    max-width: 720px;
+}
+
+.card-section {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-section h3 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- Encabezados ---------- */
+
+.page-title {
+    text-align: center;
+    margin: 0 0 0.25rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 auto 1.75rem;
+    max-width: 480px;
+}
+
+/* ---------- Formularios ---------- */
+
+.form {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    max-width: var(--max-form);
+    margin: 0 auto;
+}
+
+.form p,
+.form .form-row {
+    margin: 0 0 1rem;
+}
+
+.form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+    color: var(--text);
+}
+
+.form label .required {
+    color: var(--accent);
+}
+
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background-color: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form input::placeholder {
+    color: var(--muted);
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(225, 29, 46, 0.2);
+}
+
+.form .help-text,
+.form .helptext {
+    display: block;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* Campos requeridos en register/login (usados por UserCreationForm .as_p) */
+.form .field-required::before,
+.form label[for$="-password1"]::after {
+    content: none;
+}
+
+/* Errores */
+.errorlist {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0.6rem 0.9rem;
+    background-color: rgba(225, 29, 46, 0.12);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    color: #ff6b6b;
+    font-size: 0.875rem;
+}
+
+.errorlist li + li {
+    margin-top: 0.25rem;
+}
+
+/* ---------- Contraseña (campo con toggle) ---------- */
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 3rem;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.password-toggle:hover {
+    color: var(--accent);
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--muted);
+}
+
+.btn-link a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* ---------- Perfil / detalle ---------- */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-header h2 {
+    margin: 0 0 0.25rem;
+}
+
+.profile-header .role-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.8rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.data-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.data-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-list li:last-child {
+    border-bottom: none;
+}
+
+.data-list .label {
+    color: var(--muted);
+}
+
+.data-list .value {
+    color: var(--text);
+    text-align: right;
+}
+
+/* IMC */
+.bmi-highlight {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.bmi-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.bmi-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.note {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* ---------- Acciones ---------- */
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+
+.actions .btn {
+    width: auto;
+    flex: 1 1 auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+.actions .btn-secondary {
+    background-color: var(--surface-secondary);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.actions .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ---------- Lista de clientes ---------- */
+
+.client-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: var(--max-form);
+}
+
+.client-list li {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.6rem;
+    transition: border-color 0.15s ease;
+}
+
+.client-list li:hover {
+    border-color: var(--accent);
+}
+
+.client-list a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.client-list a:hover {
+    color: var(--accent);
+}
+
+/* ---------- Mensajes flash ---------- */
+
+.messages {
+    list-style: none;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    max-width: var(--max-form);
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.message.success {
+    background-color: rgba(22, 163, 74, 0.15);
+    border: 1px solid #16a34a;
+    color: #86efac;
+}
+
+.message.error {
+    background-color: rgba(225, 29, 46, 0.15);
+    border: 1px solid var(--accent);
+    color: #fca5a5;
+}
+
+/* ---------- Pie de página ---------- */
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .form,
+    .card {
+        padding: 1.25rem;
+    }
+
+    .page-title {
+        font-size: 1.4rem;
+    }
+
+    .data-list li {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .data-list .value {
+        text-align: left;
+    }
+}

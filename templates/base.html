@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Zpasio{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a class="brand" href="{% url 'profiles:detail' %}">Z<span class="brand-accent">pasio</span></a>
+            <nav>
+                {% if user.is_authenticated %}
+                    <span class="nav-user">{{ user.full_name|default:user.username }}</span>
+                    <a href="{% url 'profiles:detail' %}">Mi perfil</a>
+                    {% if user.is_entrenador %}
+                        <a href="{% url 'profiles:client_list' %}">Clientes</a>
+                    {% endif %}
+                    <form class="nav-logout" method="post" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="link-button">Cerrar sesión</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}">Iniciar sesión</a>
+                    <a href="{% url 'accounts:register' %}">Registrarse</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="message {{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>Zpasio — Sistema de gestión del gimnasio</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

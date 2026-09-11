@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Registro — Zpasio{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Crear cuenta</h1>
+<p class="page-subtitle">Regístrate y comienza tu plan de entrenamiento.</p>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        <ul class="errorlist">
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="form-row">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+        {% if form.username.help_text %}<span class="help-text">{{ form.username.help_text|safe }}</span>{% endif %}
+    </div>
+
+    <div class="form-row">
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+    </div>
+
+    <div class="form-row">
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+    </div>
+
+    <div class="form-row">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
+    </div>
+
+    <div class="form-row password-field">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+        {{ form.password1.errors }}
+        {% if form.password1.help_text %}<span class="help-text">{{ form.password1.help_text|safe }}</span>{% endif %}
+    </div>
+
+    <div class="form-row password-field">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+        {{ form.password2.errors }}
+        {% if form.password2.help_text %}<span class="help-text">{{ form.password2.help_text|safe }}</span>{% endif %}
+    </div>
+
+    <button type="submit" class="btn">Registrarse</button>
+
+    <p class="btn-link">¿Ya tienes cuenta? <a href="{% url 'accounts:login' %}">Inicia sesión</a></p>
+</form>
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+<script src="{% static 'js/password-toggle.js' %}"></script>
+{% endblock %}

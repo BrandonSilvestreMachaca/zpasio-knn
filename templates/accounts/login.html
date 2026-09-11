@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar sesión — Zpasio{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Zpasio</h1>
+<p class="page-subtitle">Inicia sesión para gestionar tu plan de entrenamiento.</p>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        <ul class="errorlist">
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="form-row">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+
+    <div class="form-row password-field">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+        {{ form.password.errors }}
+    </div>
+
+    <button type="submit" class="btn">Iniciar sesión</button>
+
+    <p class="btn-link">¿No tienes cuenta? <a href="{% url 'accounts:register' %}">Regístrate</a></p>
+</form>
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+<script src="{% static 'js/password-toggle.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Mi perfil — Zpasio{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <h2>{{ user.full_name|default:user.username }}</h2>
+    <span class="role-tag">{{ user.get_role_display }}</span>
+</div>
+
+<div class="card-section">
+    <h3>Datos personales</h3>
+    <ul class="data-list">
+        <li><span class="label">Usuario</span><span class="value">{{ user.username }}</span></li>
+        <li><span class="label">Correo</span><span class="value">{{ user.email }}</span></li>
+        <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
+        <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
+        <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
+    </ul>
+</div>
+
+<div class="card-section">
+    <h3>Objetivo</h3>
+    <ul class="data-list">
+        <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
+    </ul>
+</div>
+
+<div class="card-section">
+    <h3>Nivel de experiencia</h3>
+    <ul class="data-list">
+        <li><span class="label">Experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
+    </ul>
+</div>
+
+<div class="card-section">
+    <h3>Datos físicos</h3>
+    {% if physical_data %}
+        <ul class="data-list">
+            <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
+            <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
+            {% if physical_data.body_fat_percentage %}
+                <li><span class="label">Grasa corporal</span><span class="value">{{ physical_data.body_fat_percentage }}%</span></li>
+            {% endif %}
+        </ul>
+    {% else %}
+        <p class="note">No has registrado tus datos físicos todavía.</p>
+    {% endif %}
+</div>
+
+<div class="card-section">
+    <h3>IMC</h3>
+    {% if physical_data %}
+        <div class="bmi-highlight">
+            <div class="bmi-value">{{ physical_data.bmi }}</div>
+            <div class="bmi-label">Índice de Masa Corporal</div>
+        </div>
+        <p class="note">El IMC es solo un indicador informativo y no constituye un diagnóstico médico.</p>
+    {% else %}
+        <p class="note">Registra tu peso y altura para calcular tu IMC.</p>
+    {% endif %}
+</div>
+
+<div class="actions">
+    <a class="btn" href="{% url 'profiles:edit' %}">Editar datos personales</a>
+    <a class="btn btn-secondary" href="{% url 'profiles:physical_data_edit' %}">Editar datos físicos</a>
+</div>
+{% endblock %}
