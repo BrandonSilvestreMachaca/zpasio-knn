@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     # Aplicaciones propias
     "apps.accounts",
     "apps.profiles",
+    "apps.exercises",
+    "apps.routines",
+    "apps.assessments",
 ]
 
 MIDDLEWARE = [

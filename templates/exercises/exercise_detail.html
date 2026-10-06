@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exercise.name }} — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">{{ exercise.name }}</h2>
+
+<div class="card-stack">
+    <div class="card-section">
+        <h3>Detalle del ejercicio</h3>
+        <ul class="data-list">
+            <li><span class="label">Nombre</span><span class="value">{{ exercise.name }}</span></li>
+            <li><span class="label">Grupo muscular</span><span class="value">{{ exercise.get_muscle_group_display }}</span></li>
+            <li><span class="label">Dificultad</span><span class="value">{{ exercise.get_difficulty_display }}</span></li>
+            <li><span class="label">Estado</span><span class="value">{{ exercise.is_active|yesno:"Activo,Inactivo" }}</span></li>
+            <li><span class="label">Creado</span><span class="value">{{ exercise.created_at|date:"d/m/Y H:i" }}</span></li>
+        </ul>
+    </div>
+
+    {% if exercise.description %}
+    <div class="card-section">
+        <h3>Descripción</h3>
+        <p>{{ exercise.description|linebreaksbr }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'exercises:list' %}">Volver al listado</a>
+    {% if user.is_entrenador %}
+        <a class="btn" href="{% url 'exercises:update' exercise.pk %}">Editar</a>
+        <a class="btn btn-secondary" href="{% url 'exercises:delete' exercise.pk %}">Eliminar</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -8,61 +8,113 @@
     <span class="role-tag">{{ user.get_role_display }}</span>
 </div>
 
-<div class="card-section">
-    <h3>Datos personales</h3>
-    <ul class="data-list">
-        <li><span class="label">Usuario</span><span class="value">{{ user.username }}</span></li>
-        <li><span class="label">Correo</span><span class="value">{{ user.email }}</span></li>
-        <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
-        <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
-        <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
-    </ul>
-</div>
-
-<div class="card-section">
-    <h3>Objetivo</h3>
-    <ul class="data-list">
-        <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
-    </ul>
-</div>
-
-<div class="card-section">
-    <h3>Nivel de experiencia</h3>
-    <ul class="data-list">
-        <li><span class="label">Experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
-    </ul>
-</div>
-
-<div class="card-section">
-    <h3>Datos físicos</h3>
-    {% if physical_data %}
+<div class="card-stack">
+    <div class="card-section">
+        <h3>Datos personales</h3>
         <ul class="data-list">
-            <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
-            <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
-            {% if physical_data.body_fat_percentage %}
-                <li><span class="label">Grasa corporal</span><span class="value">{{ physical_data.body_fat_percentage }}%</span></li>
-            {% endif %}
+            <li><span class="label">Usuario</span><span class="value">{{ user.username }}</span></li>
+            <li><span class="label">Correo</span><span class="value">{{ user.email }}</span></li>
+            <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
+            <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
+            <li><span class="label">Edad</span><span class="value">{% if profile.age is not None %}{{ profile.age }} años{% else %}—{% endif %}</span></li>
+            <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
         </ul>
-    {% else %}
-        <p class="note">No has registrado tus datos físicos todavía.</p>
-    {% endif %}
-</div>
+    </div>
 
-<div class="card-section">
-    <h3>IMC</h3>
-    {% if physical_data %}
-        <div class="bmi-highlight">
-            <div class="bmi-value">{{ physical_data.bmi }}</div>
-            <div class="bmi-label">Índice de Masa Corporal</div>
-        </div>
-        <p class="note">El IMC es solo un indicador informativo y no constituye un diagnóstico médico.</p>
-    {% else %}
-        <p class="note">Registra tu peso y altura para calcular tu IMC.</p>
-    {% endif %}
+    <div class="card-section">
+        <h3>Objetivo de entrenamiento</h3>
+        <ul class="data-list">
+            <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
+            <li><span class="label">Nivel de experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
+            <li><span class="label">Días disponibles por semana</span><span class="value">{{ profile.available_days_per_week|default:"—" }}</span></li>
+            <li><span class="label">Tiempo disponible por sesión</span><span class="value">{% if profile.session_time_available_minutes %}{{ profile.session_time_available_minutes }} minutos{% else %}—{% endif %}</span></li>
+            <li><span class="label">Frecuencia previa de entrenamiento</span><span class="value">{% if profile.previous_training_days_per_week is not None %}{{ profile.previous_training_days_per_week }} días/semana{% else %}—{% endif %}</span></li>
+        </ul>
+    </div>
+
+    <div class="card-section">
+        <h3>Datos físicos</h3>
+        {% if physical_data %}
+            <ul class="data-list">
+                <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
+                <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
+                <li><span class="label">Cintura</span><span class="value">{% if physical_data.waist_circumference_cm %}{{ physical_data.waist_circumference_cm }} cm{% else %}—{% endif %}</span></li>
+                <li><span class="label">Grasa corporal</span><span class="value">{% if physical_data.body_fat_percentage %}{{ physical_data.body_fat_percentage }}%{% else %}—{% endif %}</span></li>
+            </ul>
+        {% else %}
+            <p class="note">No has registrado tus datos físicos todavía.</p>
+        {% endif %}
+    </div>
+
+    <div class="card-section">
+        <h3>IMC</h3>
+        {% if physical_data %}
+            <div class="bmi-highlight">
+                <div class="bmi-value">{{ physical_data.bmi }}</div>
+                <div class="bmi-classification bmi-classification--{{ physical_data.bmi_classification_css_class }}">{{ physical_data.bmi_classification }}</div>
+                <div class="bmi-label">Índice de Masa Corporal</div>
+            </div>
+            <div class="bmi-scale">
+                <h4>Escala de IMC</h4>
+                <ul>
+                    <li><span class="label">Bajo peso</span><span class="muted">menos de 18.5</span></li>
+                    <li><span class="label">Peso normal</span><span class="muted">18.5 a 24.9</span></li>
+                    <li><span class="label">Sobrepeso</span><span class="muted">25.0 a 29.9</span></li>
+                    <li><span class="label">Obesidad</span><span class="muted">30.0 o más</span></li>
+                </ul>
+            </div>
+            <p class="note">El IMC es solo un indicador informativo y no constituye un diagnóstico médico.</p>
+        {% else %}
+            <p class="note">Registra tu peso y altura para calcular tu IMC.</p>
+        {% endif %}
+    </div>
+
+    <div class="card-section">
+        <h3>Mis rutinas asignadas</h3>
+        {% if routine_assignments %}
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Rutina</th><th>Inicio</th><th>Fin</th><th>Estado</th><th>Adherencia</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+                {% for assignment in routine_assignments %}
+                <tr>
+                    <td>{{ assignment.routine.name }}</td>
+                    <td>{{ assignment.start_date|date:"d/m/Y" }}</td>
+                    <td>{% if assignment.end_date %}{{ assignment.end_date|date:"d/m/Y" }}{% else %}—{% endif %}</td>
+                    <td>
+                        <span class="status-badge
+                            {% if assignment.status == 'EN_PROGRESO' %}status-active{% endif %}
+                            {% if assignment.status == 'FINALIZADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'CANCELADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'ASIGNADA' %}status-active{% endif %}
+                        ">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if assignment.adherence_percentage is not None %}
+                            {{ assignment.adherence_percentage }}%
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
+                    <td class="exercise-actions">
+                        <a href="{% url 'routines:assignment_detail' assignment.pk %}">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">No tienes rutinas asignadas todavía.</p>
+        {% endif %}
+    </div>
 </div>
 
 <div class="actions">
     <a class="btn" href="{% url 'profiles:edit' %}">Editar datos personales</a>
     <a class="btn btn-secondary" href="{% url 'profiles:physical_data_edit' %}">Editar datos físicos</a>
+    <a class="btn btn-secondary" href="{% url 'assessments:list' %}">Mis evaluaciones</a>
 </div>
 {% endblock %}

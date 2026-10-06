@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicios — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Ejercicios</h2>
+<p class="page-subtitle">Catálogo de ejercicios del gimnasio.</p>
+
+{% if user.is_entrenador %}
+<div class="actions">
+    <a class="btn" href="{% url 'exercises:create' %}">+ Nuevo ejercicio</a>
+</div>
+{% endif %}
+
+{% if exercises %}
+<div class="card-section" style="max-width: 720px;">
+    <table class="exercise-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Grupo muscular</th>
+                <th>Dificultad</th>
+                <th>Estado</th>
+                {% if user.is_entrenador %}<th>Acciones</th>{% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in exercises %}
+            <tr>
+                <td>{{ exercise.name }}</td>
+                <td>{{ exercise.get_muscle_group_display }}</td>
+                <td>{{ exercise.get_difficulty_display }}</td>
+                <td>
+                    {% if exercise.is_active %}
+                        <span class="status-badge status-active">Activo</span>
+                    {% else %}
+                        <span class="status-badge status-inactive">Inactivo</span>
+                    {% endif %}
+                </td>
+                {% if user.is_entrenador %}
+                <td class="exercise-actions">
+                    <a href="{% url 'exercises:detail' exercise.pk %}">Ver</a>
+                    <a href="{% url 'exercises:update' exercise.pk %}">Editar</a>
+                    <a class="danger-link" href="{% url 'exercises:delete' exercise.pk %}">Eliminar</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p class="note">Todavía no hay ejercicios registrados.</p>
+{% endif %}
+{% endblock %}

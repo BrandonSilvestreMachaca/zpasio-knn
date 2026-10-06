@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Evaluación {{ evaluation.get_evaluation_type_display }} — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Evaluación {{ evaluation.get_evaluation_type_display }}</h2>
+
+<div class="card-stack">
+    <div class="card-section">
+        <h3>Datos de la evaluación</h3>
+        <ul class="data-list">
+            <li><span class="label">Usuario</span><span class="value">{{ evaluation.user.full_name|default:evaluation.user.username }}</span></li>
+            <li><span class="label">Entrenador</span><span class="value">{{ evaluation.trainer.full_name|default:evaluation.trainer.username }}</span></li>
+            <li><span class="label">Fecha</span><span class="value">{{ evaluation.conducted_at|date:"d/m/Y H:i" }}</span></li>
+            <li><span class="label">Tipo</span><span class="value">{{ evaluation.get_evaluation_type_display }}</span></li>
+        </ul>
+    </div>
+
+    <div class="card-section">
+        <h3>Resultados</h3>
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Prueba</th><th>Resultado</th><th>Unidad</th><th>Observación</th></tr>
+            </thead>
+            <tbody>
+                {% for result in evaluation.results.all %}
+                <tr>
+                    <td>{{ result.test_name }}</td>
+                    <td>{{ result.value }}</td>
+                    <td>{{ result.unit }}</td>
+                    <td>{{ result.notes|default:"—" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">Esta evaluación no registra resultados.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if evaluation.observations %}
+    <div class="card-section">
+        <h3>Observaciones</h3>
+        <p>{{ evaluation.observations|linebreaksbr }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="actions">
+    {% if user.is_entrenador %}
+        <a class="btn btn-secondary" href="{% url 'profiles:client_detail' evaluation.user.username %}">Volver al cliente</a>
+    {% else %}
+        <a class="btn btn-secondary" href="{% url 'assessments:list' %}">Volver a mis evaluaciones</a>
+    {% endif %}
+</div>
+{% endblock %}

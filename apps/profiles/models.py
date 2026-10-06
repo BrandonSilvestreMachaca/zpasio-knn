@@ -1,9 +1,11 @@
 """Modelos de perfiles y datos físicos de Zpasio."""
 
+from datetime import date
 from decimal import Decimal
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -68,6 +70,35 @@ class Profile(models.Model):
         blank=True,
     )
 
+    available_days_per_week = models.PositiveSmallIntegerField(
+        _("días disponibles por semana"),
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(1), MaxValueValidator(7)],
+        help_text=_(
+            "Días por semana que el usuario tiene disponibles para "
+            "entrenar (entre 1 y 7)."
+        ),
+    )
+
+    session_time_available_minutes = models.PositiveIntegerField(
+        _("tiempo disponible por sesión (minutos)"),
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(1)],
+        help_text=_("Minutos que el usuario puede dedicar a cada sesión."),
+    )
+
+    previous_training_days_per_week = models.PositiveSmallIntegerField(
+        _("frecuencia previa de entrenamiento (días/semana)"),
+        null=True,
+        blank=True,
+        validators=[MaxValueValidator(7)],
+        help_text=_(
+            "Días por semana que entrenaba antes de empezar (0 a 7)."
+        ),
+    )
+
     created_at = models.DateTimeField(_("creado"), auto_now_add=True)
     updated_at = models.DateTimeField(_("actualizado"), auto_now=True)
 
@@ -77,6 +108,20 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"Perfil de {self.user.username}"
+
+    @property
+    def age(self):
+        """Edad en años calculada a partir de la fecha de nacimiento."""
+        if not self.birth_date:
+            return None
+        today = date.today()
+        age = today.year - self.birth_date.year
+        if (today.month, today.day) < (
+            self.birth_date.month,
+            self.birth_date.day,
+        ):
+            age -= 1
+        return age
 
 
 class PhysicalData(models.Model):
@@ -115,12 +160,30 @@ class PhysicalData(models.Model):
         help_text=_("Calculado automáticamente a partir de peso y altura."),
     )
 
+    waist_circumference_cm = models.DecimalField(
+        _("circunferencia de cintura (cm)"),
+        max_digits=5,
+        decimal_places=1,
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(Decimal("0.01"))],
+        help_text=_("Medida opcional de cintura en centímetros."),
+    )
+
     body_fat_percentage = models.DecimalField(
         _("porcentaje de grasa corporal"),
         max_digits=4,
         decimal_places=1,
         null=True,
         blank=True,
+        validators=[
+            MinValueValidator(Decimal("0")),
+            MaxValueValidator(Decimal("100")),
+        ],
+        help_text=_(
+            "Dato medido (no calculado); no se utiliza para "
+            "clasificaciones automáticas."
+        ),
     )
 
     measured_at = models.DateTimeField(_("fecha de medición"), auto_now=True)
@@ -146,6 +209,41 @@ class PhysicalData(models.Model):
     def save(self, *args, **kwargs):
         self.bmi = self.calculate_bmi(self.weight_kg, self.height_cm)
         super().save(*args, **kwargs)
+
+    # Clasificación del IMC (rango: etiqueta, clase CSS)
+    BMI_CATEGORIES = (
+        (Decimal("18.5"), "Bajo peso", "underweight"),
+        (Decimal("25.0"), "Peso normal", "normal"),
+        (Decimal("30.0"), "Sobrepeso", "overweight"),
+        (None, "Obesidad", "obesity"),
+    )
+
+    @property
+    def bmi_classification(self) -> str:
+        """Etiqueta de clasificación del IMC según los rangos estándar OMS."""
+        classification = self.classify_bmi(self.bmi)
+        return classification[0] if classification else ""
+
+    @property
+    def bmi_classification_css_class(self) -> str:
+        """Clase CSS asociada a la clasificación del IMC."""
+        classification = self.classify_bmi(self.bmi)
+        return classification[1] if classification else ""
+
+    @staticmethod
+    def classify_bmi(bmi: Decimal):
+        """Clasifica numéricamente un IMC.
+
+        Devuelve una tupla (etiqueta, clase_css) o None si el IMC no existe.
+        Las comparaciones son numéricas para evitar problemas de límites.
+        """
+        if bmi is None:
+            return None
+        bmi = Decimal(bmi)
+        for threshold, label, css_class in PhysicalData.BMI_CATEGORIES:
+            if threshold is None or bmi < threshold:
+                return label, css_class
+        return None
 
     @staticmethod
     def calculate_bmi(weight_kg: Decimal, height_cm: Decimal) -> Decimal:

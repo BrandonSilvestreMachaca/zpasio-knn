@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Asignaciones de rutinas — Zpasio{% endblock %}
+
+{% block content %}
+<div class="card-stack">
+    <div class="card-section">
+        <h3>{% if user.is_entrenador %}Todas las asignaciones{% else %}Mis rutinas asignadas{% endif %}</h3>
+        {% if assignments %}
+        <table class="exercise-table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Rutina</th>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                    <th>Estado</th>
+                    <th>Adherencia</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.user.full_name|default:assignment.user.username }}</td>
+                    <td>{{ assignment.routine.name }}</td>
+                    <td>{{ assignment.start_date|date:"d/m/Y" }}</td>
+                    <td>{% if assignment.end_date %}{{ assignment.end_date|date:"d/m/Y" }}{% else %}—{% endif %}</td>
+                    <td>
+                        <span class="status-badge
+                            {% if assignment.status == 'EN_PROGRESO' %}status-active{% endif %}
+                            {% if assignment.status == 'FINALIZADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'CANCELADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'ASIGNADA' %}status-active{% endif %}
+                        ">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if assignment.adherence_percentage is not None %}
+                            {{ assignment.adherence_percentage }}%
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
+                    <td class="exercise-actions">
+                        <a href="{% url 'routines:assignment_detail' assignment.pk %}">Ver</a>
+                        {% if user.is_entrenador %}
+                        <a href="{% url 'routines:assignment_update' assignment.pk %}">Editar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">{% if user.is_entrenador %}No hay asignaciones registradas.{% else %}No tienes rutinas asignadas.{% endif %}</p>
+        {% endif %}
+    </div>
+
+    {% if user.is_entrenador %}
+    <div class="actions">
+        <a class="btn btn-secondary" href="{% url 'profiles:client_list' %}">Volver a clientes</a>
+    </div>
+    {% else %}
+    <div class="actions">
+        <a class="btn btn-secondary" href="{% url 'profiles:detail' %}">Volver a mi perfil</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

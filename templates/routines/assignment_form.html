@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Zpasio{% endblock %}
+
+{% block content %}
+<div class="form">
+    <h2 class="page-title">{{ title }}</h2>
+    {% if client %}
+    <p class="page-subtitle">Cliente: {{ client.full_name|default:client.username }}</p>
+    {% endif %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <ul class="errorlist">
+            {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="form-row">
+            <label for="{{ form.routine.id_for_label }}">{{ form.routine.label }}{% if form.routine.field.required %} <span class="required">*</span>{% endif %}</label>
+            {{ form.routine }}
+            {% if form.routine.errors %}
+            <ul class="errorlist">
+                {% for error in form.routine.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.start_date.id_for_label }}">{{ form.start_date.label }}{% if form.start_date.field.required %} <span class="required">*</span>{% endif %}</label>
+            {{ form.start_date }}
+            {% if form.start_date.errors %}
+            <ul class="errorlist">
+                {% for error in form.start_date.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.end_date.id_for_label }}">{{ form.end_date.label }}</label>
+            {{ form.end_date }}
+            {% if form.end_date.errors %}
+            <ul class="errorlist">
+                {% for error in form.end_date.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="help-text">Opcional. Déjalo vacío si la rutina está en curso.</p>
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.status.id_for_label }}">{{ form.status.label }}{% if form.status.field.required %} <span class="required">*</span>{% endif %}</label>
+            {{ form.status }}
+            {% if form.status.errors %}
+            <ul class="errorlist">
+                {% for error in form.status.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.initial_evaluation.id_for_label }}">{{ form.initial_evaluation.label }}</label>
+            {{ form.initial_evaluation }}
+            {% if form.initial_evaluation.errors %}
+            <ul class="errorlist">
+                {% for error in form.initial_evaluation.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="help-text">Opcional. Solo se muestran evaluaciones de tipo INICIAL del cliente.</p>
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.final_evaluation.id_for_label }}">{{ form.final_evaluation.label }}</label>
+            {{ form.final_evaluation }}
+            {% if form.final_evaluation.errors %}
+            <ul class="errorlist">
+                {% for error in form.final_evaluation.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="help-text">Opcional. Solo se muestran evaluaciones de tipo FINAL del cliente.</p>
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.planned_sessions.id_for_label }}">{{ form.planned_sessions.label }}</label>
+            {{ form.planned_sessions }}
+            {% if form.planned_sessions.errors %}
+            <ul class="errorlist">
+                {% for error in form.planned_sessions.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="help-text">Total de sesiones planificadas para calcular adherencia.</p>
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.completed_sessions.id_for_label }}">{{ form.completed_sessions.label }}</label>
+            {{ form.completed_sessions }}
+            {% if form.completed_sessions.errors %}
+            <ul class="errorlist">
+                {% for error in form.completed_sessions.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="help-text">Sesiones que el usuario ha realizado.</p>
+        </div>
+
+        <div class="form-row">
+            <label for="{{ form.observations.id_for_label }}">{{ form.observations.label }}</label>
+            {{ form.observations }}
+            {% if form.observations.errors %}
+            <ul class="errorlist">
+                {% for error in form.observations.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <button type="submit" class="btn">{{ title }}</button>
+            {% if assignment %}
+            <a class="btn btn-secondary" href="{% url 'routines:assignment_detail' assignment.pk %}">Cancelar</a>
+            {% elif client %}
+            <a class="btn btn-secondary" href="{% url 'profiles:client_detail' client.username %}">Cancelar</a>
+            {% else %}
+            <a class="btn btn-secondary" href="{% url 'routines:assignment_list' %}">Cancelar</a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

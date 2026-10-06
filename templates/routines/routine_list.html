@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Rutinas — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Rutinas</h2>
+<p class="page-subtitle">Rutinas de entrenamiento del gimnasio.</p>
+
+{% if user.is_entrenador %}
+<div class="actions">
+    <a class="btn" href="{% url 'routines:create' %}">+ Nueva rutina</a>
+</div>
+{% endif %}
+
+{% if routines %}
+<div class="card-section" style="max-width: 960px;">
+    <table class="exercise-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Objetivo</th>
+                <th>Nivel</th>
+                <th>Intensidad</th>
+                <th>Sesiones</th>
+                <th>Ejercicios</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for routine in routines %}
+            <tr>
+                <td>{{ routine.name }}</td>
+                <td>{{ routine.get_goal_display }}</td>
+                <td>{{ routine.get_level_display }}</td>
+                <td>{{ routine.get_intensity_display }}</td>
+                <td>{% if routine.sessions.count > 0 %}{{ routine.sessions.count }}{% else %}1{% endif %}</td>
+                <td>{{ routine.exercises.count }}</td>
+                <td>
+                    {% if routine.is_active %}
+                        <span class="status-badge status-active">Activa</span>
+                    {% else %}
+                        <span class="status-badge status-inactive">Inactiva</span>
+                    {% endif %}
+                </td>
+                {% if user.is_entrenador %}
+                <td class="exercise-actions">
+                    <a href="{% url 'routines:detail' routine.pk %}">Ver</a>
+                    <a href="{% url 'routines:update' routine.pk %}">Editar</a>
+                    <a class="danger-link" href="{% url 'routines:delete' routine.pk %}">Eliminar</a>
+                </td>
+                {% else %}
+                <td class="exercise-actions">
+                    <a href="{% url 'routines:detail' routine.pk %}">Ver</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% if not user.is_entrenador %}
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'profiles:detail' %}">Volver</a>
+</div>
+{% endif %}
+{% else %}
+<p class="note">Todavía no hay rutinas registradas.</p>
+{% endif %}
+{% endblock %}

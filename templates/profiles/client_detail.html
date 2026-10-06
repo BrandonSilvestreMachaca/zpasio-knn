@@ -8,31 +8,120 @@
     <span class="role-tag">{{ client.get_role_display }}</span>
 </div>
 
-<div class="card-section">
-    <h3>Datos personales</h3>
-    <ul class="data-list">
-        <li><span class="label">Usuario</span><span class="value">{{ client.username }}</span></li>
-        <li><span class="label">Correo</span><span class="value">{{ client.email }}</span></li>
-        {% if profile %}
-            <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
-            <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
-            <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
-            <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
-            <li><span class="label">Experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
-        {% endif %}
-    </ul>
-</div>
-
-{% if physical_data %}
+<div class="card-stack">
     <div class="card-section">
-        <h3>Datos físicos</h3>
+        <h3>Datos personales</h3>
         <ul class="data-list">
-            <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
-            <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
-            <li><span class="label">IMC</span><span class="value">{{ physical_data.bmi }}</span></li>
+            <li><span class="label">Usuario</span><span class="value">{{ client.username }}</span></li>
+            <li><span class="label">Correo</span><span class="value">{{ client.email }}</span></li>
+            {% if profile %}
+                <li><span class="label">Teléfono</span><span class="value">{{ profile.phone|default:"—" }}</span></li>
+                <li><span class="label">Fecha de nacimiento</span><span class="value">{{ profile.birth_date|default:"—" }}</span></li>
+                <li><span class="label">Edad</span><span class="value">{% if profile.age is not None %}{{ profile.age }} años{% else %}—{% endif %}</span></li>
+                <li><span class="label">Género</span><span class="value">{{ profile.get_gender_display|default:"—" }}</span></li>
+            {% endif %}
         </ul>
     </div>
-{% endif %}
+
+    {% if profile %}
+        <div class="card-section">
+            <h3>Objetivo de entrenamiento</h3>
+            <ul class="data-list">
+                <li><span class="label">Objetivo</span><span class="value">{{ profile.get_goal_display|default:"—" }}</span></li>
+                <li><span class="label">Nivel de experiencia</span><span class="value">{{ profile.get_experience_level_display|default:"—" }}</span></li>
+                <li><span class="label">Días disponibles por semana</span><span class="value">{{ profile.available_days_per_week|default:"—" }}</span></li>
+                <li><span class="label">Tiempo disponible por sesión</span><span class="value">{% if profile.session_time_available_minutes %}{{ profile.session_time_available_minutes }} minutos{% else %}—{% endif %}</span></li>
+                <li><span class="label">Frecuencia previa de entrenamiento</span><span class="value">{% if profile.previous_training_days_per_week is not None %}{{ profile.previous_training_days_per_week }} días/semana{% else %}—{% endif %}</span></li>
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if physical_data %}
+        <div class="card-section">
+            <h3>Datos físicos</h3>
+            <ul class="data-list">
+                <li><span class="label">Peso</span><span class="value">{{ physical_data.weight_kg }} kg</span></li>
+                <li><span class="label">Altura</span><span class="value">{{ physical_data.height_cm }} cm</span></li>
+                <li><span class="label">IMC</span><span class="value">{{ physical_data.bmi }} — {{ physical_data.bmi_classification }}</span></li>
+                <li><span class="label">Cintura</span><span class="value">{% if physical_data.waist_circumference_cm %}{{ physical_data.waist_circumference_cm }} cm{% else %}—{% endif %}</span></li>
+                <li><span class="label">Grasa corporal</span><span class="value">{% if physical_data.body_fat_percentage %}{{ physical_data.body_fat_percentage }}%{% else %}—{% endif %}</span></li>
+            </ul>
+        </div>
+    {% endif %}
+
+    <div class="card-section">
+        <h3>Rutinas del usuario</h3>
+        {% if routine_assignments %}
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Rutina</th><th>Inicio</th><th>Fin</th><th>Estado</th><th>Adherencia</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+                {% for assignment in routine_assignments %}
+                <tr>
+                    <td>{{ assignment.routine.name }}</td>
+                    <td>{{ assignment.start_date|date:"d/m/Y" }}</td>
+                    <td>{% if assignment.end_date %}{{ assignment.end_date|date:"d/m/Y" }}{% else %}—{% endif %}</td>
+                    <td>
+                        <span class="status-badge
+                            {% if assignment.status == 'EN_PROGRESO' %}status-active{% endif %}
+                            {% if assignment.status == 'FINALIZADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'CANCELADA' %}status-inactive{% endif %}
+                            {% if assignment.status == 'ASIGNADA' %}status-active{% endif %}
+                        ">
+                            {{ assignment.get_status_display }}
+                        </span>
+                    </td>
+                    <td>
+                        {% if assignment.adherence_percentage is not None %}
+                            {{ assignment.adherence_percentage }}%
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
+                    <td class="exercise-actions">
+                        <a href="{% url 'routines:assignment_detail' assignment.pk %}">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">Este cliente todavía no tiene rutinas asignadas.</p>
+        {% endif %}
+        <div class="actions">
+            <a class="btn" href="{% url 'routines:assignment_create' client.username %}">+ Asignar rutina</a>
+        </div>
+    </div>
+
+    <div class="card-section">
+        <h3>Evaluaciones físicas</h3>
+        {% if evaluations %}
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Fecha</th><th>Tipo</th><th>Entrenador</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+                {% for evaluation in evaluations %}
+                <tr>
+                    <td>{{ evaluation.conducted_at|date:"d/m/Y" }}</td>
+                    <td>{{ evaluation.get_evaluation_type_display }}</td>
+                    <td>{{ evaluation.trainer.username }}</td>
+                    <td class="exercise-actions">
+                        <a href="{% url 'assessments:detail' evaluation.pk %}">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">Este cliente todavía no tiene evaluaciones registradas.</p>
+        {% endif %}
+        <div class="actions">
+            <a class="btn" href="{% url 'assessments:create' client.username %}">+ Nueva evaluación</a>
+        </div>
+    </div>
+</div>
 
 <div class="actions">
     <a class="btn btn-secondary" href="{% url 'profiles:client_list' %}">Volver a la lista</a>

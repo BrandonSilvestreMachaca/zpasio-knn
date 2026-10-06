@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">{{ title }}</h2>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+
+    <div class="card-section" style="max-width: 720px;">
+        <h3>Información general</h3>
+        {% for field in form %}
+            <p>
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}{% if field.field.required %} <span class="required">*</span>{% endif %}
+                </label>
+                {{ field }}
+                {% if field.help_text %}<span class="help-text">{{ field.help_text }}</span>{% endif %}
+                {% for error in field.errors %}
+                    <div class="errorlist">{{ error }}</div>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="errorlist">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="card-section" style="max-width: 720px;">
+        <h3>Ejercicios de la rutina</h3>
+        <p class="help-text">
+            Seleccioná ejercicios del catálogo existente. En cada ejercicio indicá series,
+            repeticiones (o duración en segundos si es por tiempo, como la plancha) y descanso.
+        </p>
+        {{ formset.management_form }}
+        {% if formset.non_form_errors %}
+            {% for error in formset.non_form_errors %}
+                <div class="errorlist">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        {% for eform in formset %}
+            <fieldset style="border: 1px solid var(--border, #333); border-radius: 6px; margin-bottom: 12px; padding: 10px;">
+                <legend>Ejercicio {{ forloop.counter }}</legend>
+                {% if eform.non_field_errors %}
+                    {% for error in eform.non_field_errors %}
+                        <div class="errorlist">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% if eform.instance.pk %}{{ eform.id }}{% endif %}
+                {% for field in eform %}
+                    {% if field.name != "DELETE" and field.name != "id" %}
+                    <p>
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}{% if field.field.required %} <span class="required">*</span>{% endif %}
+                        </label>
+                        {{ field }}
+                        {% if field.help_text %}<span class="help-text">{{ field.help_text }}</span>{% endif %}
+                        {% for error in field.errors %}
+                            <div class="errorlist">{{ error }}</div>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                {% endfor %}
+                {% if eform.instance.pk %}
+                <p>
+                    <label>{{ eform.DELETE }} Quitar de la rutina</label>
+                </p>
+                {% endif %}
+            </fieldset>
+        {% endfor %}
+    </div>
+
+    <button class="btn" type="submit">Guardar</button>
+</form>
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'routines:list' %}">Cancelar</a>
+</div>
+{% endblock %}

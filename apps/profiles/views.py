@@ -20,10 +20,15 @@ def profile_detail_view(request):
     """Muestra el perfil del usuario autenticado (con datos físicos e IMC)."""
     profile, _ = Profile.objects.get_or_create(user=request.user)
     physical_data = getattr(request.user, "physical_data", None)
+    routine_assignments = (
+        request.user.routine_assignments.select_related("routine", "trainer", "initial_evaluation", "final_evaluation")
+        .order_by("-start_date")
+    )
 
     context = {
         "profile": profile,
         "physical_data": physical_data,
+        "routine_assignments": routine_assignments,
     }
     return render(request, "profiles/profile_detail.html", context)
 
@@ -83,10 +88,20 @@ def entrenador_client_detail_view(request, username):
     client = get_object_or_404(User, username=username, role=User.Role.USUARIO)
     profile = getattr(client, "profile", None)
     physical_data = getattr(client, "physical_data", None)
+    evaluations = (
+        client.physical_evaluations.select_related("trainer")
+        .prefetch_related("results")
+    )
+    routine_assignments = (
+        client.routine_assignments.select_related("routine", "trainer", "initial_evaluation", "final_evaluation")
+        .order_by("-start_date")
+    )
 
     context = {
         "client": client,
         "profile": profile,
         "physical_data": physical_data,
+        "evaluations": evaluations,
+        "routine_assignments": routine_assignments,
     }
     return render(request, "profiles/client_detail.html", context)

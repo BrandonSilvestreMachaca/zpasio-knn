@@ -15,6 +15,8 @@
                 {% if user.is_authenticated %}
                     <span class="nav-user">{{ user.full_name|default:user.username }}</span>
                     <a href="{% url 'profiles:detail' %}">Mi perfil</a>
+                    <a href="{% url 'exercises:list' %}">Ejercicios</a>
+                    <a href="{% url 'routines:list' %}">Rutinas</a>
                     {% if user.is_entrenador %}
                         <a href="{% url 'profiles:client_list' %}">Clientes</a>
                     {% endif %}

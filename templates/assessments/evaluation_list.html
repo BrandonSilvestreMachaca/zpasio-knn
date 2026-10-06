@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Mis evaluaciones — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Mis evaluaciones físicas</h2>
+<p class="page-subtitle">Historial de evaluaciones registradas por tu entrenador.</p>
+
+{% if evaluations %}
+<div class="card-section" style="max-width: 720px;">
+    <table class="exercise-table">
+        <thead>
+            <tr><th>Fecha</th><th>Tipo</th><th>Entrenador</th><th>Acción</th></tr>
+        </thead>
+        <tbody>
+            {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.conducted_at|date:"d/m/Y" }}</td>
+                <td>{{ evaluation.get_evaluation_type_display }}</td>
+                <td>{{ evaluation.trainer.username }}</td>
+                <td class="exercise-actions">
+                    <a href="{% url 'assessments:detail' evaluation.pk %}">Ver</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p class="note">Todavía no tenés evaluaciones registradas.</p>
+{% endif %}
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'profiles:detail' %}">Volver al perfil</a>
+</div>
+{% endblock %}

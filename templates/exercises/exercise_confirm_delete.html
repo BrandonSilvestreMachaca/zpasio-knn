@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar ejercicio — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Eliminar ejercicio</h2>
+
+<div class="card-stack">
+    <div class="card-section">
+        <p style="text-align: center;">
+            ¿Está seguro de que desea eliminar el ejercicio
+            <strong>«{{ exercise.name }}»</strong>?
+        </p>
+        <p class="note">El ejercicio se desactivará y dejará de mostrarse en el catálogo.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="actions">
+                <button class="btn" type="submit" name="confirm" value="1">Confirmar</button>
+                <button class="btn btn-secondary" type="submit" name="cancel" value="1">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

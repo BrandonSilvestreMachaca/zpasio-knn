@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">{{ title }}</h2>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+        <p>
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }}{% if field.field.required %} <span class="required">*</span>{% endif %}
+            </label>
+            {{ field }}
+            {% if field.help_text %}<span class="help-text">{{ field.help_text }}</span>{% endif %}
+            {% for error in field.errors %}
+                <div class="errorlist">{{ error }}</div>
+            {% endfor %}
+        </p>
+    {% endfor %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="errorlist">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+    <button class="btn" type="submit">Guardar</button>
+</form>
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'exercises:list' %}">Cancelar</a>
+</div>
+{% endblock %}

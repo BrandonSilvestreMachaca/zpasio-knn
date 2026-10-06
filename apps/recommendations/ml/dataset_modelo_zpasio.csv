@@ -1,0 +1,501 @@
+id_sintetico,edad,sexo,imc,porcentaje_grasa,objetivo,nivel_experiencia,experiencia,dias_disponibles,tiempo_sesion_minutos,frecuencia_previa,rutina_zpasio,sesiones_planificadas,sesiones_realizadas,adherencia_porcentaje,progreso_sintetico,resultado_sintetico,fuente
+SYN-Z-0001,24,Masculino,18.44,13.1,Acondicionamiento general,3,Avanzado,5,45,4,Upper/Lower,50,30,60.0,0.25,Bajo,sintetico
+SYN-Z-0002,22,Masculino,25.83,22.4,Fuerza,1,Principiante,6,90,0,Arnold Split,60,35,58.3,2.02,Moderado,sintetico
+SYN-Z-0003,25,Masculino,21.0,11.0,Ganancia muscular,2,Intermedio,5,45,2,Upper/Lower,50,41,82.0,4.4,Alto,sintetico
+SYN-Z-0004,36,Femenino,19.04,30.6,Fuerza,1,Principiante,4,60,1,Torso/Pierna,40,39,97.5,2.43,Moderado,sintetico
+SYN-Z-0005,27,Femenino,20.59,15.2,Resistencia,2,Intermedio,6,45,2,Push Pull Legs,36,21,58.3,0.28,Bajo,sintetico
+SYN-Z-0006,56,Femenino,16.0,19.8,Resistencia,1,Principiante,3,60,2,Upper/Lower,24,15,62.5,2.03,Moderado,sintetico
+SYN-Z-0007,60,Masculino,30.02,12.0,Acondicionamiento general,3,Avanzado,5,45,4,Push Pull Legs,40,35,87.5,4.22,Alto,sintetico
+SYN-Z-0008,49,Femenino,20.78,31.1,Resistencia,1,Principiante,4,60,1,Torso/Pierna,40,34,85.0,4.8,Alto,sintetico
+SYN-Z-0009,27,Femenino,28.08,17.4,Resistencia,1,Principiante,3,60,1,Upper/Lower,30,19,63.3,0.0,Bajo,sintetico
+SYN-Z-0010,39,Femenino,20.83,26.3,Ganancia muscular,1,Principiante,3,45,3,Full Body,24,16,66.7,0.0,Bajo,sintetico
+SYN-Z-0011,58,Masculino,23.31,7.2,Ganancia muscular,3,Avanzado,5,90,5,Push Pull Legs,50,40,80.0,2.11,Moderado,sintetico
+SYN-Z-0012,52,Femenino,23.21,24.2,Resistencia,1,Principiante,3,45,1,Torso/Pierna,24,22,91.7,5.1,Alto,sintetico
+SYN-Z-0013,57,Masculino,24.6,15.6,Fuerza,1,Principiante,5,90,2,Upper/Lower,40,24,60.0,0.86,Bajo,sintetico
+SYN-Z-0014,41,Masculino,27.12,20.6,Resistencia,3,Avanzado,4,90,5,Torso/Pierna,24,21,87.5,3.5,Moderado,sintetico
+SYN-Z-0015,51,Femenino,26.09,24.8,Fuerza,2,Intermedio,4,90,2,Upper/Lower,40,29,72.5,3.67,Moderado,sintetico
+SYN-Z-0016,32,Femenino,19.65,32.6,Acondicionamiento general,2,Intermedio,6,45,2,Push Pull Legs,48,29,60.4,1.03,Bajo,sintetico
+SYN-Z-0017,59,Femenino,25.12,30.7,Ganancia muscular,1,Principiante,5,90,2,Upper/Lower,60,46,76.7,0.75,Bajo,sintetico
+SYN-Z-0018,55,Masculino,22.02,12.8,Fuerza,1,Principiante,4,60,2,Torso/Pierna,32,19,59.4,2.11,Moderado,sintetico
+SYN-Z-0019,34,Masculino,20.44,15.5,Ganancia muscular,3,Avanzado,5,75,5,Arnold Split,60,56,93.3,4.03,Alto,sintetico
+SYN-Z-0020,28,Masculino,27.12,13.8,Fuerza,2,Intermedio,4,75,4,Torso/Pierna,24,16,66.7,3.39,Moderado,sintetico
+SYN-Z-0021,42,Masculino,26.59,21.5,Acondicionamiento general,3,Avanzado,5,45,5,Arnold Split,30,28,93.3,6.0,Alto,sintetico
+SYN-Z-0022,52,Masculino,29.39,25.0,Ganancia muscular,3,Avanzado,6,90,4,Push Pull Legs,72,48,66.7,1.5,Bajo,sintetico
+SYN-Z-0023,48,Femenino,20.23,32.2,Ganancia muscular,3,Avanzado,4,75,4,Upper/Lower,40,33,82.5,3.39,Moderado,sintetico
+SYN-Z-0024,52,Femenino,24.48,27.8,Ganancia muscular,2,Intermedio,4,45,2,Upper/Lower,40,30,75.0,2.34,Moderado,sintetico
+SYN-Z-0025,24,Masculino,19.75,18.6,Acondicionamiento general,1,Principiante,4,75,3,Full Body,48,38,79.2,2.85,Moderado,sintetico
+SYN-Z-0026,53,Femenino,26.72,34.3,Resistencia,2,Intermedio,4,90,3,Upper/Lower,32,24,75.0,0.0,Bajo,sintetico
+SYN-Z-0027,28,Masculino,25.4,23.7,Ganancia muscular,1,Principiante,3,45,2,Upper/Lower,36,22,61.1,0.0,Bajo,sintetico
+SYN-Z-0028,34,Masculino,20.73,21.2,Acondicionamiento general,2,Intermedio,4,75,3,Upper/Lower,48,36,75.0,0.8,Bajo,sintetico
+SYN-Z-0029,30,Femenino,26.88,36.8,Fuerza,2,Intermedio,4,45,2,Upper/Lower,24,23,95.8,6.0,Alto,sintetico
+SYN-Z-0030,43,Femenino,22.53,21.7,Ganancia muscular,1,Principiante,5,45,3,Push Pull Legs,50,36,72.0,1.4,Bajo,sintetico
+SYN-Z-0031,35,Masculino,22.43,15.1,Ganancia muscular,3,Avanzado,3,90,3,Torso/Pierna,30,29,96.7,4.6,Alto,sintetico
+SYN-Z-0032,50,Femenino,29.72,23.7,Acondicionamiento general,2,Intermedio,6,90,3,Arnold Split,72,68,94.4,2.27,Moderado,sintetico
+SYN-Z-0033,19,Femenino,25.61,29.1,Fuerza,2,Intermedio,5,60,3,Upper/Lower,30,26,86.7,2.4,Moderado,sintetico
+SYN-Z-0034,34,Masculino,23.56,22.7,Resistencia,2,Intermedio,2,60,2,Full Body,16,15,93.8,4.56,Alto,sintetico
+SYN-Z-0035,30,Femenino,24.26,23.5,Resistencia,1,Principiante,3,60,2,Upper/Lower,24,21,87.5,1.62,Bajo,sintetico
+SYN-Z-0036,25,Masculino,21.85,10.2,Ganancia muscular,2,Intermedio,5,75,2,Upper/Lower,60,39,65.0,0.46,Bajo,sintetico
+SYN-Z-0037,50,Femenino,19.16,29.3,Acondicionamiento general,1,Principiante,4,45,0,Torso/Pierna,32,24,75.0,2.48,Moderado,sintetico
+SYN-Z-0038,25,Femenino,24.29,27.8,Acondicionamiento general,2,Intermedio,4,75,2,Upper/Lower,40,27,67.5,3.73,Moderado,sintetico
+SYN-Z-0039,48,Femenino,21.37,29.9,Resistencia,1,Principiante,4,90,1,Full Body,32,29,90.6,4.86,Alto,sintetico
+SYN-Z-0040,35,Masculino,17.09,10.8,Fuerza,1,Principiante,4,45,2,Torso/Pierna,40,36,90.0,5.37,Alto,sintetico
+SYN-Z-0041,37,Femenino,19.71,22.2,Fuerza,1,Principiante,2,75,0,Upper/Lower,20,14,70.0,2.27,Moderado,sintetico
+SYN-Z-0042,41,Femenino,22.2,30.3,Fuerza,1,Principiante,4,60,2,Upper/Lower,48,43,89.6,3.82,Moderado,sintetico
+SYN-Z-0043,46,Masculino,22.09,19.7,Fuerza,2,Intermedio,5,75,2,Upper/Lower,30,18,60.0,1.84,Bajo,sintetico
+SYN-Z-0044,39,Masculino,22.24,23.7,Acondicionamiento general,2,Intermedio,3,90,3,Torso/Pierna,36,23,63.9,0.0,Bajo,sintetico
+SYN-Z-0045,19,Masculino,23.68,10.5,Ganancia muscular,3,Avanzado,3,90,5,Torso/Pierna,18,11,61.1,1.39,Bajo,sintetico
+SYN-Z-0046,43,Masculino,28.91,24.9,Acondicionamiento general,1,Principiante,3,60,1,Full Body,24,19,79.2,1.52,Bajo,sintetico
+SYN-Z-0047,28,Masculino,28.17,21.3,Acondicionamiento general,3,Avanzado,4,75,4,Upper/Lower,48,40,83.3,3.12,Moderado,sintetico
+SYN-Z-0048,58,Femenino,18.85,23.1,Resistencia,1,Principiante,4,60,2,Upper/Lower,48,33,68.8,0.56,Bajo,sintetico
+SYN-Z-0049,37,Masculino,31.85,22.3,Resistencia,3,Avanzado,3,45,4,Torso/Pierna,30,18,60.0,0.0,Bajo,sintetico
+SYN-Z-0050,45,Femenino,18.65,18.9,Fuerza,2,Intermedio,4,90,3,Torso/Pierna,48,32,66.7,2.15,Moderado,sintetico
+SYN-Z-0051,23,Femenino,21.1,21.1,Resistencia,2,Intermedio,3,75,1,Full Body,24,17,70.8,3.41,Moderado,sintetico
+SYN-Z-0052,58,Femenino,22.15,23.3,Fuerza,2,Intermedio,3,60,4,Full Body,18,12,66.7,2.16,Moderado,sintetico
+SYN-Z-0053,26,Femenino,24.08,23.4,Acondicionamiento general,1,Principiante,3,90,1,Upper/Lower,36,31,86.1,5.77,Alto,sintetico
+SYN-Z-0054,20,Femenino,30.34,34.5,Resistencia,1,Principiante,5,45,1,Upper/Lower,60,55,91.7,3.95,Moderado,sintetico
+SYN-Z-0055,25,Masculino,16.36,22.8,Ganancia muscular,1,Principiante,3,45,0,Upper/Lower,36,31,86.1,3.12,Moderado,sintetico
+SYN-Z-0056,37,Femenino,28.01,36.0,Ganancia muscular,2,Intermedio,3,75,4,Full Body,18,12,66.7,4.25,Alto,sintetico
+SYN-Z-0057,45,Femenino,31.58,32.0,Acondicionamiento general,2,Intermedio,5,45,4,Upper/Lower,40,29,72.5,1.92,Bajo,sintetico
+SYN-Z-0058,23,Masculino,25.46,20.6,Ganancia muscular,2,Intermedio,2,60,2,Full Body,24,16,66.7,0.0,Bajo,sintetico
+SYN-Z-0059,53,Femenino,25.97,23.0,Acondicionamiento general,1,Principiante,4,60,1,Torso/Pierna,48,39,81.2,3.49,Moderado,sintetico
+SYN-Z-0060,52,Femenino,25.45,30.8,Acondicionamiento general,1,Principiante,3,60,2,Upper/Lower,30,24,80.0,3.32,Moderado,sintetico
+SYN-Z-0061,47,Masculino,25.27,12.8,Ganancia muscular,2,Intermedio,4,75,3,Upper/Lower,48,31,64.6,0.51,Bajo,sintetico
+SYN-Z-0062,49,Masculino,21.82,13.9,Ganancia muscular,2,Intermedio,2,45,5,Full Body,12,8,66.7,2.5,Moderado,sintetico
+SYN-Z-0063,49,Masculino,28.73,24.4,Acondicionamiento general,3,Avanzado,4,75,5,Upper/Lower,24,23,95.8,4.86,Alto,sintetico
+SYN-Z-0064,31,Femenino,31.3,26.9,Ganancia muscular,2,Intermedio,4,90,4,Upper/Lower,40,32,80.0,0.92,Bajo,sintetico
+SYN-Z-0065,22,Femenino,26.96,30.3,Ganancia muscular,2,Intermedio,5,90,3,Push Pull Legs,40,32,80.0,4.48,Alto,sintetico
+SYN-Z-0066,53,Femenino,24.33,18.7,Acondicionamiento general,2,Intermedio,5,90,3,Push Pull Legs,60,47,78.3,2.3,Moderado,sintetico
+SYN-Z-0067,60,Masculino,19.21,13.9,Resistencia,3,Avanzado,4,75,5,Torso/Pierna,40,33,82.5,2.14,Moderado,sintetico
+SYN-Z-0068,54,Masculino,20.92,20.8,Resistencia,2,Intermedio,6,90,3,Push Pull Legs,60,49,81.7,3.16,Moderado,sintetico
+SYN-Z-0069,51,Masculino,27.89,20.0,Fuerza,1,Principiante,3,75,3,Torso/Pierna,30,28,93.3,4.66,Alto,sintetico
+SYN-Z-0070,50,Masculino,28.19,23.4,Resistencia,1,Principiante,4,60,2,Full Body,48,39,81.2,5.48,Alto,sintetico
+SYN-Z-0071,31,Masculino,23.33,8.9,Ganancia muscular,1,Principiante,4,75,3,Upper/Lower,24,21,87.5,4.3,Alto,sintetico
+SYN-Z-0072,39,Femenino,27.61,25.3,Ganancia muscular,3,Avanzado,5,60,4,Push Pull Legs,60,36,60.0,0.0,Bajo,sintetico
+SYN-Z-0073,51,Masculino,22.32,22.9,Fuerza,1,Principiante,3,90,3,Torso/Pierna,18,12,66.7,1.28,Bajo,sintetico
+SYN-Z-0074,36,Femenino,26.66,32.1,Ganancia muscular,2,Intermedio,4,75,4,Upper/Lower,32,25,78.1,3.59,Moderado,sintetico
+SYN-Z-0075,30,Femenino,20.38,29.0,Fuerza,2,Intermedio,3,75,3,Full Body,18,15,83.3,2.2,Moderado,sintetico
+SYN-Z-0076,45,Femenino,22.46,29.7,Ganancia muscular,2,Intermedio,5,60,4,Upper/Lower,40,30,75.0,2.36,Moderado,sintetico
+SYN-Z-0077,32,Masculino,23.58,15.1,Ganancia muscular,2,Intermedio,3,45,3,Full Body,30,18,60.0,2.81,Moderado,sintetico
+SYN-Z-0078,25,Femenino,23.68,27.2,Fuerza,1,Principiante,3,75,0,Full Body,18,13,72.2,1.67,Bajo,sintetico
+SYN-Z-0079,60,Masculino,24.45,20.0,Resistencia,1,Principiante,2,45,3,Upper/Lower,12,7,58.3,1.61,Bajo,sintetico
+SYN-Z-0080,59,Femenino,24.96,32.4,Ganancia muscular,3,Avanzado,6,90,5,Push Pull Legs,48,37,77.1,1.52,Bajo,sintetico
+SYN-Z-0081,47,Masculino,33.26,25.9,Acondicionamiento general,1,Principiante,4,60,3,Upper/Lower,40,27,67.5,1.98,Bajo,sintetico
+SYN-Z-0082,50,Femenino,26.63,22.0,Ganancia muscular,3,Avanzado,6,75,5,Arnold Split,48,30,62.5,2.42,Moderado,sintetico
+SYN-Z-0083,42,Masculino,19.97,19.0,Resistencia,2,Intermedio,6,75,2,Push Pull Legs,48,44,91.7,4.39,Alto,sintetico
+SYN-Z-0084,37,Masculino,16.57,18.6,Fuerza,2,Intermedio,3,45,4,Full Body,18,16,88.9,6.0,Alto,sintetico
+SYN-Z-0085,44,Femenino,22.32,33.9,Resistencia,3,Avanzado,3,60,5,Torso/Pierna,24,20,83.3,3.85,Moderado,sintetico
+SYN-Z-0086,32,Masculino,20.63,22.1,Acondicionamiento general,2,Intermedio,5,75,3,Upper/Lower,40,26,65.0,2.68,Moderado,sintetico
+SYN-Z-0087,32,Masculino,16.0,20.8,Acondicionamiento general,3,Avanzado,3,60,5,Torso/Pierna,36,31,86.1,3.13,Moderado,sintetico
+SYN-Z-0088,47,Masculino,18.28,18.7,Acondicionamiento general,2,Intermedio,5,90,2,Push Pull Legs,30,23,76.7,1.29,Bajo,sintetico
+SYN-Z-0089,20,Masculino,20.51,15.5,Acondicionamiento general,2,Intermedio,4,45,3,Torso/Pierna,40,31,77.5,4.05,Alto,sintetico
+SYN-Z-0090,45,Femenino,23.48,25.6,Fuerza,2,Intermedio,4,90,4,Upper/Lower,32,24,75.0,3.32,Moderado,sintetico
+SYN-Z-0091,38,Femenino,28.84,30.5,Fuerza,3,Avanzado,6,45,4,Push Pull Legs,36,22,61.1,3.1,Moderado,sintetico
+SYN-Z-0092,46,Femenino,29.89,34.2,Fuerza,2,Intermedio,4,90,4,Torso/Pierna,32,21,65.6,1.78,Bajo,sintetico
+SYN-Z-0093,27,Masculino,24.66,16.8,Acondicionamiento general,1,Principiante,3,60,2,Full Body,18,15,83.3,3.79,Moderado,sintetico
+SYN-Z-0094,34,Masculino,16.9,16.6,Ganancia muscular,2,Intermedio,4,90,3,Torso/Pierna,48,36,75.0,4.23,Alto,sintetico
+SYN-Z-0095,23,Masculino,24.67,24.7,Fuerza,2,Intermedio,2,60,4,Full Body,12,10,83.3,3.74,Moderado,sintetico
+SYN-Z-0096,56,Femenino,23.66,28.7,Fuerza,1,Principiante,3,75,0,Torso/Pierna,24,23,95.8,3.3,Moderado,sintetico
+SYN-Z-0097,55,Femenino,26.11,27.2,Resistencia,1,Principiante,6,45,2,Full Body,60,46,76.7,0.17,Bajo,sintetico
+SYN-Z-0098,25,Femenino,22.53,30.7,Fuerza,1,Principiante,4,45,0,Torso/Pierna,24,19,79.2,1.35,Bajo,sintetico
+SYN-Z-0099,56,Femenino,17.54,27.7,Resistencia,1,Principiante,6,90,0,Arnold Split,48,45,93.8,4.15,Alto,sintetico
+SYN-Z-0100,32,Femenino,24.72,27.4,Ganancia muscular,1,Principiante,5,60,3,Upper/Lower,30,21,70.0,0.0,Bajo,sintetico
+SYN-Z-0101,53,Masculino,27.17,20.0,Ganancia muscular,1,Principiante,3,75,2,Upper/Lower,30,22,73.3,1.69,Bajo,sintetico
+SYN-Z-0102,54,Masculino,25.8,16.1,Acondicionamiento general,3,Avanzado,6,45,4,Arnold Split,60,46,76.7,1.49,Bajo,sintetico
+SYN-Z-0103,44,Masculino,26.22,15.6,Resistencia,2,Intermedio,4,45,3,Torso/Pierna,24,23,95.8,6.0,Alto,sintetico
+SYN-Z-0104,35,Masculino,22.44,21.3,Fuerza,2,Intermedio,4,90,3,Torso/Pierna,40,35,87.5,4.35,Alto,sintetico
+SYN-Z-0105,35,Femenino,31.5,36.4,Resistencia,1,Principiante,3,75,2,Full Body,24,23,95.8,5.7,Alto,sintetico
+SYN-Z-0106,46,Masculino,27.13,9.4,Resistencia,1,Principiante,6,75,2,Full Body,48,32,66.7,0.96,Bajo,sintetico
+SYN-Z-0107,20,Femenino,18.41,30.4,Resistencia,1,Principiante,6,45,0,Full Body,60,35,58.3,3.19,Moderado,sintetico
+SYN-Z-0108,37,Masculino,23.37,20.6,Resistencia,1,Principiante,5,45,1,Full Body,30,29,96.7,5.42,Alto,sintetico
+SYN-Z-0109,53,Masculino,25.5,23.3,Fuerza,1,Principiante,6,75,1,Push Pull Legs,60,48,80.0,2.64,Moderado,sintetico
+SYN-Z-0110,21,Masculino,33.0,24.9,Acondicionamiento general,1,Principiante,2,90,0,Upper/Lower,20,14,70.0,3.28,Moderado,sintetico
+SYN-Z-0111,30,Masculino,31.12,20.5,Fuerza,2,Intermedio,2,90,4,Full Body,24,16,66.7,2.31,Moderado,sintetico
+SYN-Z-0112,32,Masculino,28.06,14.9,Acondicionamiento general,3,Avanzado,3,75,5,Torso/Pierna,36,21,58.3,0.0,Bajo,sintetico
+SYN-Z-0113,48,Masculino,21.85,21.3,Resistencia,1,Principiante,4,60,0,Torso/Pierna,24,17,70.8,2.01,Moderado,sintetico
+SYN-Z-0114,59,Masculino,25.8,13.0,Acondicionamiento general,1,Principiante,3,60,0,Upper/Lower,18,13,72.2,1.18,Bajo,sintetico
+SYN-Z-0115,55,Femenino,25.41,22.6,Fuerza,2,Intermedio,3,45,3,Torso/Pierna,18,15,83.3,1.28,Bajo,sintetico
+SYN-Z-0116,47,Femenino,17.51,20.3,Acondicionamiento general,1,Principiante,2,45,1,Upper/Lower,20,16,80.0,1.39,Bajo,sintetico
+SYN-Z-0117,60,Masculino,30.71,26.7,Ganancia muscular,3,Avanzado,5,60,4,Arnold Split,60,39,65.0,1.81,Bajo,sintetico
+SYN-Z-0118,38,Femenino,16.5,18.2,Acondicionamiento general,1,Principiante,5,75,3,Push Pull Legs,60,55,91.7,4.07,Alto,sintetico
+SYN-Z-0119,36,Masculino,21.06,21.0,Resistencia,1,Principiante,3,75,2,Torso/Pierna,36,30,83.3,2.62,Moderado,sintetico
+SYN-Z-0120,42,Femenino,20.81,29.5,Acondicionamiento general,2,Intermedio,3,90,4,Torso/Pierna,24,17,70.8,1.06,Bajo,sintetico
+SYN-Z-0121,60,Masculino,25.53,20.3,Acondicionamiento general,1,Principiante,5,60,3,Upper/Lower,60,56,93.3,5.28,Alto,sintetico
+SYN-Z-0122,56,Femenino,21.35,21.7,Acondicionamiento general,2,Intermedio,4,60,4,Torso/Pierna,32,28,87.5,5.38,Alto,sintetico
+SYN-Z-0123,35,Femenino,29.19,26.9,Ganancia muscular,1,Principiante,4,75,2,Torso/Pierna,24,15,62.5,2.22,Moderado,sintetico
+SYN-Z-0124,51,Femenino,22.92,26.8,Ganancia muscular,3,Avanzado,3,45,4,Torso/Pierna,18,17,94.4,2.96,Moderado,sintetico
+SYN-Z-0125,52,Masculino,19.8,16.9,Resistencia,2,Intermedio,4,75,3,Torso/Pierna,40,24,60.0,1.34,Bajo,sintetico
+SYN-Z-0126,48,Masculino,19.26,12.2,Ganancia muscular,1,Principiante,3,45,2,Upper/Lower,30,19,63.3,1.7,Bajo,sintetico
+SYN-Z-0127,35,Femenino,24.92,26.8,Fuerza,1,Principiante,6,60,1,Upper/Lower,60,54,90.0,2.95,Moderado,sintetico
+SYN-Z-0128,33,Femenino,26.56,34.0,Ganancia muscular,1,Principiante,6,60,2,Arnold Split,72,49,68.1,0.0,Bajo,sintetico
+SYN-Z-0129,46,Masculino,26.09,27.0,Resistencia,1,Principiante,5,45,3,Upper/Lower,50,39,78.0,3.27,Moderado,sintetico
+SYN-Z-0130,52,Masculino,19.95,21.1,Fuerza,2,Intermedio,4,90,5,Torso/Pierna,48,41,85.4,3.76,Moderado,sintetico
+SYN-Z-0131,51,Masculino,28.53,24.0,Acondicionamiento general,1,Principiante,4,75,1,Full Body,40,34,85.0,4.38,Alto,sintetico
+SYN-Z-0132,43,Femenino,25.46,19.6,Fuerza,2,Intermedio,4,60,3,Upper/Lower,24,14,58.3,1.0,Bajo,sintetico
+SYN-Z-0133,24,Masculino,23.03,13.2,Resistencia,2,Intermedio,3,45,3,Full Body,18,16,88.9,3.59,Moderado,sintetico
+SYN-Z-0134,25,Masculino,25.81,16.9,Fuerza,2,Intermedio,6,60,3,Push Pull Legs,72,68,94.4,5.9,Alto,sintetico
+SYN-Z-0135,35,Femenino,22.39,19.2,Resistencia,2,Intermedio,3,45,3,Torso/Pierna,30,29,96.7,5.13,Alto,sintetico
+SYN-Z-0136,34,Femenino,25.16,29.3,Fuerza,3,Avanzado,4,60,4,Torso/Pierna,32,26,81.2,2.63,Moderado,sintetico
+SYN-Z-0137,24,Femenino,24.1,24.8,Resistencia,1,Principiante,5,45,2,Push Pull Legs,30,29,96.7,4.22,Alto,sintetico
+SYN-Z-0138,60,Femenino,23.86,34.6,Ganancia muscular,3,Avanzado,4,90,3,Upper/Lower,32,19,59.4,1.12,Bajo,sintetico
+SYN-Z-0139,48,Masculino,16.0,8.8,Resistencia,1,Principiante,4,45,0,Upper/Lower,24,22,91.7,6.0,Alto,sintetico
+SYN-Z-0140,36,Masculino,25.0,19.8,Fuerza,1,Principiante,3,90,3,Upper/Lower,36,22,61.1,0.0,Bajo,sintetico
+SYN-Z-0141,58,Femenino,24.3,24.4,Fuerza,1,Principiante,4,45,2,Upper/Lower,48,46,95.8,2.78,Moderado,sintetico
+SYN-Z-0142,19,Masculino,22.57,21.1,Acondicionamiento general,2,Intermedio,3,90,5,Full Body,24,23,95.8,3.61,Moderado,sintetico
+SYN-Z-0143,20,Masculino,23.72,17.9,Ganancia muscular,3,Avanzado,3,60,6,Torso/Pierna,18,14,77.8,2.95,Moderado,sintetico
+SYN-Z-0144,28,Masculino,25.28,16.5,Fuerza,2,Intermedio,2,60,1,Full Body,20,13,65.0,2.56,Moderado,sintetico
+SYN-Z-0145,54,Masculino,20.0,27.4,Ganancia muscular,1,Principiante,4,75,2,Upper/Lower,32,27,84.4,3.84,Moderado,sintetico
+SYN-Z-0146,53,Masculino,16.05,17.9,Ganancia muscular,1,Principiante,5,90,2,Upper/Lower,30,17,56.7,0.44,Bajo,sintetico
+SYN-Z-0147,29,Masculino,23.06,11.0,Acondicionamiento general,1,Principiante,5,60,2,Upper/Lower,60,41,68.3,2.64,Moderado,sintetico
+SYN-Z-0148,29,Masculino,19.27,10.9,Ganancia muscular,2,Intermedio,4,75,3,Upper/Lower,32,20,62.5,1.35,Bajo,sintetico
+SYN-Z-0149,51,Masculino,18.65,8.3,Fuerza,3,Avanzado,4,60,4,Upper/Lower,48,37,77.1,3.55,Moderado,sintetico
+SYN-Z-0150,28,Masculino,28.09,21.8,Resistencia,1,Principiante,3,90,3,Torso/Pierna,24,15,62.5,1.82,Bajo,sintetico
+SYN-Z-0151,19,Femenino,22.97,26.3,Acondicionamiento general,1,Principiante,4,75,0,Upper/Lower,32,29,90.6,5.11,Alto,sintetico
+SYN-Z-0152,38,Masculino,29.84,25.9,Acondicionamiento general,3,Avanzado,6,45,3,Arnold Split,48,32,66.7,1.94,Bajo,sintetico
+SYN-Z-0153,57,Femenino,26.19,32.6,Fuerza,2,Intermedio,4,75,3,Upper/Lower,40,25,62.5,1.9,Bajo,sintetico
+SYN-Z-0154,47,Femenino,18.61,28.2,Resistencia,1,Principiante,4,60,0,Full Body,24,18,75.0,1.72,Bajo,sintetico
+SYN-Z-0155,51,Femenino,26.31,25.6,Acondicionamiento general,2,Intermedio,3,90,3,Torso/Pierna,36,29,80.6,2.09,Moderado,sintetico
+SYN-Z-0156,55,Masculino,31.83,16.8,Ganancia muscular,1,Principiante,2,90,1,Upper/Lower,24,19,79.2,1.39,Bajo,sintetico
+SYN-Z-0157,24,Femenino,22.83,26.4,Acondicionamiento general,2,Intermedio,6,60,3,Push Pull Legs,36,28,77.8,3.53,Moderado,sintetico
+SYN-Z-0158,37,Masculino,22.21,7.6,Ganancia muscular,2,Intermedio,6,90,3,Arnold Split,48,43,89.6,1.34,Bajo,sintetico
+SYN-Z-0159,41,Femenino,24.44,27.0,Acondicionamiento general,2,Intermedio,6,75,2,Arnold Split,48,43,89.6,3.75,Moderado,sintetico
+SYN-Z-0160,23,Femenino,24.38,25.5,Resistencia,3,Avanzado,6,45,4,Push Pull Legs,60,44,73.3,3.31,Moderado,sintetico
+SYN-Z-0161,59,Masculino,18.1,11.5,Resistencia,1,Principiante,3,45,1,Torso/Pierna,24,21,87.5,2.04,Moderado,sintetico
+SYN-Z-0162,32,Femenino,22.6,29.4,Resistencia,2,Intermedio,2,75,2,Full Body,24,21,87.5,4.99,Alto,sintetico
+SYN-Z-0163,52,Femenino,20.84,26.7,Ganancia muscular,2,Intermedio,3,90,4,Full Body,30,29,96.7,5.34,Alto,sintetico
+SYN-Z-0164,22,Masculino,25.5,20.9,Fuerza,1,Principiante,5,45,1,Push Pull Legs,40,31,77.5,6.0,Alto,sintetico
+SYN-Z-0165,44,Femenino,24.44,26.2,Ganancia muscular,1,Principiante,5,60,2,Upper/Lower,60,49,81.7,1.81,Bajo,sintetico
+SYN-Z-0166,59,Femenino,18.6,24.7,Acondicionamiento general,2,Intermedio,4,60,4,Torso/Pierna,32,25,78.1,2.15,Moderado,sintetico
+SYN-Z-0167,36,Masculino,26.45,22.6,Fuerza,3,Avanzado,5,75,5,Arnold Split,40,26,65.0,2.24,Moderado,sintetico
+SYN-Z-0168,25,Masculino,29.73,20.9,Resistencia,2,Intermedio,3,45,2,Full Body,30,23,76.7,0.0,Bajo,sintetico
+SYN-Z-0169,28,Femenino,25.15,28.4,Fuerza,3,Avanzado,6,75,6,Arnold Split,60,46,76.7,5.53,Alto,sintetico
+SYN-Z-0170,36,Masculino,26.48,11.7,Resistencia,3,Avanzado,5,90,5,Arnold Split,30,21,70.0,1.58,Bajo,sintetico
+SYN-Z-0171,43,Masculino,22.84,18.1,Fuerza,1,Principiante,4,60,2,Full Body,24,15,62.5,0.0,Bajo,sintetico
+SYN-Z-0172,46,Masculino,28.46,19.7,Ganancia muscular,2,Intermedio,6,75,2,Arnold Split,60,44,73.3,3.57,Moderado,sintetico
+SYN-Z-0173,18,Femenino,22.57,29.8,Ganancia muscular,2,Intermedio,3,90,3,Torso/Pierna,30,19,63.3,0.0,Bajo,sintetico
+SYN-Z-0174,45,Femenino,27.9,34.3,Fuerza,1,Principiante,3,75,4,Upper/Lower,18,10,55.6,1.89,Bajo,sintetico
+SYN-Z-0175,58,Femenino,20.12,28.1,Fuerza,2,Intermedio,3,90,3,Torso/Pierna,30,23,76.7,4.13,Alto,sintetico
+SYN-Z-0176,47,Masculino,24.78,18.5,Acondicionamiento general,1,Principiante,3,75,0,Torso/Pierna,24,14,58.3,1.58,Bajo,sintetico
+SYN-Z-0177,35,Femenino,25.99,28.0,Acondicionamiento general,2,Intermedio,4,75,2,Upper/Lower,40,31,77.5,1.69,Bajo,sintetico
+SYN-Z-0178,54,Masculino,25.84,16.5,Resistencia,1,Principiante,4,60,1,Upper/Lower,48,40,83.3,3.66,Moderado,sintetico
+SYN-Z-0179,40,Masculino,23.28,23.6,Fuerza,3,Avanzado,5,60,5,Push Pull Legs,50,46,92.0,2.45,Moderado,sintetico
+SYN-Z-0180,37,Femenino,22.09,18.9,Resistencia,1,Principiante,5,45,2,Upper/Lower,60,43,71.7,2.97,Moderado,sintetico
+SYN-Z-0181,28,Masculino,25.45,24.6,Ganancia muscular,3,Avanzado,4,45,5,Upper/Lower,48,35,72.9,2.75,Moderado,sintetico
+SYN-Z-0182,41,Masculino,27.93,10.6,Resistencia,2,Intermedio,3,75,5,Full Body,24,22,91.7,4.6,Alto,sintetico
+SYN-Z-0183,27,Masculino,23.53,21.0,Acondicionamiento general,3,Avanzado,5,45,6,Upper/Lower,30,20,66.7,2.72,Moderado,sintetico
+SYN-Z-0184,20,Masculino,16.0,15.7,Resistencia,1,Principiante,5,45,2,Full Body,40,26,65.0,0.0,Bajo,sintetico
+SYN-Z-0185,40,Masculino,31.01,27.1,Resistencia,3,Avanzado,4,60,4,Upper/Lower,32,28,87.5,3.73,Moderado,sintetico
+SYN-Z-0186,36,Masculino,28.55,16.9,Ganancia muscular,3,Avanzado,6,90,4,Arnold Split,36,23,63.9,2.68,Moderado,sintetico
+SYN-Z-0187,40,Femenino,20.23,27.7,Resistencia,1,Principiante,3,45,0,Upper/Lower,30,24,80.0,2.81,Moderado,sintetico
+SYN-Z-0188,20,Masculino,23.56,19.9,Resistencia,1,Principiante,5,90,2,Upper/Lower,40,37,92.5,5.56,Alto,sintetico
+SYN-Z-0189,48,Femenino,30.78,45.0,Ganancia muscular,2,Intermedio,4,45,4,Upper/Lower,32,19,59.4,1.83,Bajo,sintetico
+SYN-Z-0190,30,Femenino,26.87,37.8,Fuerza,1,Principiante,5,90,1,Push Pull Legs,50,44,88.0,5.82,Alto,sintetico
+SYN-Z-0191,59,Femenino,20.83,31.1,Acondicionamiento general,3,Avanzado,4,60,5,Torso/Pierna,48,37,77.1,2.09,Moderado,sintetico
+SYN-Z-0192,58,Masculino,30.93,23.3,Acondicionamiento general,3,Avanzado,5,60,3,Push Pull Legs,50,41,82.0,4.52,Alto,sintetico
+SYN-Z-0193,24,Masculino,21.93,11.7,Acondicionamiento general,2,Intermedio,3,90,2,Torso/Pierna,18,17,94.4,4.5,Alto,sintetico
+SYN-Z-0194,20,Femenino,25.97,26.4,Acondicionamiento general,2,Intermedio,4,45,4,Torso/Pierna,32,25,78.1,3.15,Moderado,sintetico
+SYN-Z-0195,26,Femenino,23.51,21.1,Acondicionamiento general,1,Principiante,5,90,0,Push Pull Legs,30,22,73.3,2.71,Moderado,sintetico
+SYN-Z-0196,49,Femenino,21.73,22.6,Resistencia,3,Avanzado,2,45,5,Full Body,20,15,75.0,3.4,Moderado,sintetico
+SYN-Z-0197,45,Femenino,28.62,29.3,Fuerza,1,Principiante,3,75,0,Full Body,30,19,63.3,0.0,Bajo,sintetico
+SYN-Z-0198,28,Masculino,23.43,17.4,Acondicionamiento general,2,Intermedio,4,90,3,Upper/Lower,40,29,72.5,4.25,Alto,sintetico
+SYN-Z-0199,42,Femenino,17.97,19.7,Fuerza,1,Principiante,3,75,2,Upper/Lower,24,19,79.2,3.87,Moderado,sintetico
+SYN-Z-0200,22,Masculino,24.21,19.6,Acondicionamiento general,3,Avanzado,5,45,4,Arnold Split,50,34,68.0,0.13,Bajo,sintetico
+SYN-Z-0201,54,Femenino,21.19,27.5,Resistencia,1,Principiante,4,75,0,Full Body,48,36,75.0,3.16,Moderado,sintetico
+SYN-Z-0202,57,Femenino,22.12,20.4,Fuerza,3,Avanzado,4,60,4,Torso/Pierna,40,38,95.0,2.45,Moderado,sintetico
+SYN-Z-0203,52,Femenino,30.41,27.3,Fuerza,1,Principiante,4,60,2,Upper/Lower,48,36,75.0,4.65,Alto,sintetico
+SYN-Z-0204,22,Masculino,26.29,16.0,Fuerza,1,Principiante,3,60,1,Full Body,18,12,66.7,2.03,Moderado,sintetico
+SYN-Z-0205,37,Femenino,16.0,24.0,Ganancia muscular,2,Intermedio,3,75,4,Torso/Pierna,24,20,83.3,4.09,Alto,sintetico
+SYN-Z-0206,20,Femenino,24.77,25.8,Resistencia,3,Avanzado,4,45,5,Torso/Pierna,24,18,75.0,1.72,Bajo,sintetico
+SYN-Z-0207,26,Masculino,29.47,26.3,Resistencia,3,Avanzado,4,45,5,Torso/Pierna,40,37,92.5,4.91,Alto,sintetico
+SYN-Z-0208,42,Masculino,27.08,18.3,Fuerza,1,Principiante,6,90,0,Full Body,72,57,79.2,4.33,Alto,sintetico
+SYN-Z-0209,25,Femenino,20.15,23.3,Resistencia,1,Principiante,5,60,0,Upper/Lower,30,25,83.3,4.89,Alto,sintetico
+SYN-Z-0210,56,Masculino,27.7,13.9,Fuerza,3,Avanzado,3,90,4,Torso/Pierna,18,14,77.8,5.83,Alto,sintetico
+SYN-Z-0211,33,Femenino,17.79,30.7,Resistencia,1,Principiante,3,60,1,Full Body,36,30,83.3,5.79,Alto,sintetico
+SYN-Z-0212,59,Femenino,25.28,23.8,Acondicionamiento general,1,Principiante,4,90,2,Upper/Lower,24,22,91.7,3.65,Moderado,sintetico
+SYN-Z-0213,34,Masculino,21.26,21.9,Resistencia,2,Intermedio,4,45,3,Upper/Lower,48,43,89.6,2.1,Moderado,sintetico
+SYN-Z-0214,26,Masculino,19.93,19.9,Ganancia muscular,1,Principiante,3,60,0,Torso/Pierna,24,22,91.7,3.82,Moderado,sintetico
+SYN-Z-0215,44,Femenino,16.74,26.1,Fuerza,1,Principiante,5,75,2,Upper/Lower,50,33,66.0,0.78,Bajo,sintetico
+SYN-Z-0216,42,Masculino,25.36,18.9,Fuerza,2,Intermedio,6,90,3,Push Pull Legs,36,27,75.0,4.41,Alto,sintetico
+SYN-Z-0217,45,Femenino,30.46,40.7,Ganancia muscular,1,Principiante,2,90,2,Upper/Lower,12,8,66.7,0.0,Bajo,sintetico
+SYN-Z-0218,31,Masculino,31.41,19.0,Acondicionamiento general,1,Principiante,4,90,2,Upper/Lower,32,24,75.0,1.12,Bajo,sintetico
+SYN-Z-0219,44,Masculino,35.25,26.6,Acondicionamiento general,1,Principiante,6,75,0,Full Body,36,28,77.8,1.85,Bajo,sintetico
+SYN-Z-0220,38,Femenino,22.06,18.6,Resistencia,2,Intermedio,2,45,5,Full Body,20,20,100.0,5.97,Alto,sintetico
+SYN-Z-0221,60,Masculino,29.24,21.1,Acondicionamiento general,1,Principiante,5,60,3,Push Pull Legs,40,27,67.5,1.42,Bajo,sintetico
+SYN-Z-0222,50,Femenino,31.93,27.0,Resistencia,1,Principiante,5,90,2,Full Body,40,31,77.5,3.25,Moderado,sintetico
+SYN-Z-0223,35,Femenino,27.42,27.1,Resistencia,3,Avanzado,4,90,5,Torso/Pierna,32,26,81.2,2.41,Moderado,sintetico
+SYN-Z-0224,60,Femenino,26.64,29.4,Ganancia muscular,1,Principiante,4,60,1,Upper/Lower,24,18,75.0,1.16,Bajo,sintetico
+SYN-Z-0225,53,Femenino,22.61,26.9,Fuerza,2,Intermedio,3,45,3,Full Body,30,24,80.0,4.02,Alto,sintetico
+SYN-Z-0226,60,Masculino,16.0,7.0,Fuerza,2,Intermedio,4,45,3,Upper/Lower,40,24,60.0,2.53,Moderado,sintetico
+SYN-Z-0227,25,Femenino,18.05,31.9,Resistencia,1,Principiante,3,45,0,Upper/Lower,36,30,83.3,3.83,Moderado,sintetico
+SYN-Z-0228,35,Masculino,23.93,19.3,Acondicionamiento general,2,Intermedio,3,60,3,Torso/Pierna,30,27,90.0,4.4,Alto,sintetico
+SYN-Z-0229,22,Femenino,27.07,30.8,Acondicionamiento general,1,Principiante,2,60,2,Upper/Lower,16,10,62.5,3.18,Moderado,sintetico
+SYN-Z-0230,49,Femenino,23.7,15.6,Fuerza,3,Avanzado,4,45,5,Torso/Pierna,48,45,93.8,3.02,Moderado,sintetico
+SYN-Z-0231,48,Femenino,20.63,23.1,Resistencia,2,Intermedio,4,90,3,Torso/Pierna,48,41,85.4,3.12,Moderado,sintetico
+SYN-Z-0232,59,Masculino,28.94,18.1,Ganancia muscular,2,Intermedio,3,90,5,Torso/Pierna,24,23,95.8,5.7,Alto,sintetico
+SYN-Z-0233,37,Masculino,21.19,15.8,Ganancia muscular,1,Principiante,6,45,0,Arnold Split,60,43,71.7,2.08,Moderado,sintetico
+SYN-Z-0234,55,Masculino,24.58,17.4,Acondicionamiento general,2,Intermedio,3,60,3,Torso/Pierna,30,21,70.0,1.67,Bajo,sintetico
+SYN-Z-0235,47,Femenino,22.26,23.3,Fuerza,3,Avanzado,3,45,4,Full Body,36,29,80.6,1.29,Bajo,sintetico
+SYN-Z-0236,18,Femenino,26.32,30.3,Acondicionamiento general,2,Intermedio,5,90,2,Upper/Lower,60,54,90.0,6.0,Alto,sintetico
+SYN-Z-0237,23,Masculino,26.22,21.7,Fuerza,2,Intermedio,5,60,2,Push Pull Legs,60,55,91.7,4.26,Alto,sintetico
+SYN-Z-0238,52,Masculino,30.38,25.9,Acondicionamiento general,1,Principiante,2,60,3,Upper/Lower,24,18,75.0,1.27,Bajo,sintetico
+SYN-Z-0239,46,Masculino,26.06,25.3,Ganancia muscular,3,Avanzado,3,45,3,Torso/Pierna,36,31,86.1,2.11,Moderado,sintetico
+SYN-Z-0240,56,Femenino,28.43,30.6,Acondicionamiento general,2,Intermedio,3,45,2,Torso/Pierna,18,12,66.7,1.43,Bajo,sintetico
+SYN-Z-0241,59,Femenino,26.03,26.5,Resistencia,2,Intermedio,4,90,4,Upper/Lower,48,34,70.8,2.22,Moderado,sintetico
+SYN-Z-0242,32,Masculino,19.32,11.4,Acondicionamiento general,3,Avanzado,3,75,4,Torso/Pierna,30,27,90.0,2.73,Moderado,sintetico
+SYN-Z-0243,28,Masculino,23.15,25.7,Fuerza,2,Intermedio,3,60,3,Torso/Pierna,36,25,69.4,1.57,Bajo,sintetico
+SYN-Z-0244,31,Masculino,28.27,20.3,Fuerza,1,Principiante,3,45,2,Full Body,24,15,62.5,0.14,Bajo,sintetico
+SYN-Z-0245,32,Femenino,24.32,31.7,Ganancia muscular,1,Principiante,5,75,3,Push Pull Legs,30,26,86.7,2.13,Moderado,sintetico
+SYN-Z-0246,46,Femenino,31.03,28.9,Ganancia muscular,3,Avanzado,5,45,4,Push Pull Legs,40,38,95.0,4.46,Alto,sintetico
+SYN-Z-0247,28,Femenino,22.74,18.1,Ganancia muscular,2,Intermedio,3,75,3,Full Body,36,35,97.2,5.33,Alto,sintetico
+SYN-Z-0248,18,Masculino,26.8,14.7,Fuerza,1,Principiante,2,75,1,Full Body,16,14,87.5,2.44,Moderado,sintetico
+SYN-Z-0249,51,Femenino,25.01,24.9,Acondicionamiento general,2,Intermedio,6,75,4,Push Pull Legs,36,22,61.1,0.62,Bajo,sintetico
+SYN-Z-0250,38,Femenino,26.88,28.2,Ganancia muscular,1,Principiante,5,60,2,Push Pull Legs,50,37,74.0,2.14,Moderado,sintetico
+SYN-Z-0251,53,Femenino,23.88,22.7,Resistencia,1,Principiante,6,60,1,Upper/Lower,72,62,86.1,2.27,Moderado,sintetico
+SYN-Z-0252,59,Femenino,25.81,17.8,Resistencia,1,Principiante,4,60,0,Full Body,24,19,79.2,2.71,Moderado,sintetico
+SYN-Z-0253,37,Femenino,24.6,24.4,Resistencia,1,Principiante,3,75,1,Full Body,18,16,88.9,0.1,Bajo,sintetico
+SYN-Z-0254,34,Femenino,29.29,35.8,Acondicionamiento general,3,Avanzado,3,45,2,Full Body,30,21,70.0,3.08,Moderado,sintetico
+SYN-Z-0255,60,Masculino,23.42,11.8,Resistencia,1,Principiante,4,60,2,Full Body,32,28,87.5,2.65,Moderado,sintetico
+SYN-Z-0256,44,Masculino,28.02,23.1,Fuerza,1,Principiante,4,75,1,Torso/Pierna,48,45,93.8,3.2,Moderado,sintetico
+SYN-Z-0257,55,Femenino,16.0,9.9,Acondicionamiento general,2,Intermedio,5,90,3,Push Pull Legs,60,52,86.7,3.02,Moderado,sintetico
+SYN-Z-0258,26,Masculino,22.99,12.3,Fuerza,1,Principiante,6,75,2,Arnold Split,36,23,63.9,1.08,Bajo,sintetico
+SYN-Z-0259,54,Femenino,26.73,29.2,Resistencia,1,Principiante,3,90,2,Torso/Pierna,36,22,61.1,1.24,Bajo,sintetico
+SYN-Z-0260,37,Femenino,26.09,37.2,Ganancia muscular,2,Intermedio,4,45,4,Torso/Pierna,48,45,93.8,3.4,Moderado,sintetico
+SYN-Z-0261,42,Femenino,28.33,21.2,Fuerza,1,Principiante,4,90,2,Full Body,40,25,62.5,0.0,Bajo,sintetico
+SYN-Z-0262,57,Femenino,17.98,30.7,Ganancia muscular,1,Principiante,6,90,1,Upper/Lower,36,29,80.6,1.19,Bajo,sintetico
+SYN-Z-0263,37,Masculino,23.46,16.0,Ganancia muscular,3,Avanzado,6,60,5,Push Pull Legs,36,30,83.3,1.79,Bajo,sintetico
+SYN-Z-0264,52,Masculino,27.62,19.1,Acondicionamiento general,1,Principiante,2,75,1,Full Body,20,15,75.0,2.73,Moderado,sintetico
+SYN-Z-0265,44,Masculino,26.72,16.1,Ganancia muscular,1,Principiante,6,60,1,Full Body,48,34,70.8,2.89,Moderado,sintetico
+SYN-Z-0266,44,Masculino,34.0,28.1,Ganancia muscular,1,Principiante,3,45,1,Upper/Lower,30,22,73.3,3.54,Moderado,sintetico
+SYN-Z-0267,25,Masculino,26.46,27.3,Acondicionamiento general,2,Intermedio,4,90,4,Torso/Pierna,48,38,79.2,2.6,Moderado,sintetico
+SYN-Z-0268,22,Femenino,30.07,31.6,Ganancia muscular,3,Avanzado,3,45,5,Full Body,30,24,80.0,4.65,Alto,sintetico
+SYN-Z-0269,46,Masculino,27.18,14.9,Fuerza,2,Intermedio,4,60,3,Torso/Pierna,48,29,60.4,0.0,Bajo,sintetico
+SYN-Z-0270,47,Femenino,23.11,24.0,Acondicionamiento general,1,Principiante,3,75,2,Upper/Lower,24,20,83.3,2.25,Moderado,sintetico
+SYN-Z-0271,50,Femenino,30.79,33.0,Resistencia,2,Intermedio,2,45,4,Full Body,24,16,66.7,0.0,Bajo,sintetico
+SYN-Z-0272,50,Femenino,31.69,23.2,Acondicionamiento general,2,Intermedio,3,75,2,Torso/Pierna,18,17,94.4,5.65,Alto,sintetico
+SYN-Z-0273,26,Masculino,24.21,17.8,Fuerza,1,Principiante,4,90,2,Torso/Pierna,24,19,79.2,1.31,Bajo,sintetico
+SYN-Z-0274,60,Femenino,22.75,22.2,Resistencia,2,Intermedio,4,45,4,Upper/Lower,48,28,58.3,1.71,Bajo,sintetico
+SYN-Z-0275,19,Femenino,21.84,18.7,Resistencia,1,Principiante,5,60,2,Upper/Lower,30,21,70.0,3.51,Moderado,sintetico
+SYN-Z-0276,56,Masculino,36.01,25.3,Ganancia muscular,2,Intermedio,5,90,3,Push Pull Legs,30,24,80.0,3.75,Moderado,sintetico
+SYN-Z-0277,22,Masculino,24.19,24.6,Resistencia,1,Principiante,3,45,3,Torso/Pierna,30,26,86.7,3.57,Moderado,sintetico
+SYN-Z-0278,47,Masculino,29.79,18.5,Ganancia muscular,3,Avanzado,5,75,2,Upper/Lower,30,26,86.7,5.41,Alto,sintetico
+SYN-Z-0279,47,Femenino,20.15,31.3,Fuerza,3,Avanzado,2,90,4,Full Body,16,11,68.8,1.65,Bajo,sintetico
+SYN-Z-0280,54,Masculino,27.36,19.6,Ganancia muscular,2,Intermedio,6,60,3,Push Pull Legs,36,28,77.8,3.74,Moderado,sintetico
+SYN-Z-0281,19,Femenino,26.12,25.0,Resistencia,2,Intermedio,5,75,2,Push Pull Legs,60,53,88.3,3.71,Moderado,sintetico
+SYN-Z-0282,58,Femenino,23.01,25.4,Ganancia muscular,1,Principiante,4,45,2,Upper/Lower,24,17,70.8,1.62,Bajo,sintetico
+SYN-Z-0283,58,Femenino,30.01,33.3,Resistencia,2,Intermedio,5,90,4,Push Pull Legs,30,23,76.7,3.9,Moderado,sintetico
+SYN-Z-0284,47,Femenino,28.55,24.7,Ganancia muscular,1,Principiante,4,75,1,Full Body,24,20,83.3,3.0,Moderado,sintetico
+SYN-Z-0285,30,Masculino,22.5,14.3,Acondicionamiento general,2,Intermedio,3,60,3,Torso/Pierna,36,28,77.8,2.34,Moderado,sintetico
+SYN-Z-0286,59,Femenino,21.38,35.2,Fuerza,2,Intermedio,4,75,2,Upper/Lower,24,16,66.7,5.0,Alto,sintetico
+SYN-Z-0287,53,Masculino,22.17,18.5,Fuerza,1,Principiante,5,75,2,Push Pull Legs,60,49,81.7,4.54,Alto,sintetico
+SYN-Z-0288,39,Femenino,21.39,22.1,Acondicionamiento general,1,Principiante,5,45,0,Push Pull Legs,40,34,85.0,3.57,Moderado,sintetico
+SYN-Z-0289,47,Masculino,24.95,26.6,Resistencia,3,Avanzado,5,90,5,Push Pull Legs,50,29,58.0,1.6,Bajo,sintetico
+SYN-Z-0290,40,Masculino,22.41,16.2,Resistencia,2,Intermedio,2,45,3,Full Body,20,17,85.0,4.51,Alto,sintetico
+SYN-Z-0291,39,Masculino,24.86,19.4,Ganancia muscular,3,Avanzado,2,60,3,Full Body,20,19,95.0,6.0,Alto,sintetico
+SYN-Z-0292,37,Femenino,24.95,36.6,Acondicionamiento general,2,Intermedio,5,45,5,Push Pull Legs,40,26,65.0,3.32,Moderado,sintetico
+SYN-Z-0293,42,Femenino,22.74,31.1,Ganancia muscular,2,Intermedio,5,60,4,Push Pull Legs,50,34,68.0,0.94,Bajo,sintetico
+SYN-Z-0294,58,Femenino,29.95,23.3,Acondicionamiento general,3,Avanzado,3,45,5,Full Body,24,19,79.2,0.67,Bajo,sintetico
+SYN-Z-0295,59,Femenino,20.03,24.9,Resistencia,1,Principiante,4,90,1,Upper/Lower,48,40,83.3,1.85,Bajo,sintetico
+SYN-Z-0296,55,Masculino,26.76,29.7,Fuerza,2,Intermedio,4,75,2,Upper/Lower,40,27,67.5,2.32,Moderado,sintetico
+SYN-Z-0297,23,Masculino,24.53,14.1,Fuerza,2,Intermedio,4,90,2,Torso/Pierna,48,36,75.0,2.41,Moderado,sintetico
+SYN-Z-0298,41,Femenino,22.89,30.9,Fuerza,1,Principiante,3,45,1,Torso/Pierna,18,16,88.9,4.31,Alto,sintetico
+SYN-Z-0299,32,Masculino,27.28,23.0,Resistencia,2,Intermedio,3,75,3,Torso/Pierna,24,21,87.5,5.9,Alto,sintetico
+SYN-Z-0300,26,Femenino,27.87,29.4,Acondicionamiento general,3,Avanzado,6,45,3,Push Pull Legs,72,48,66.7,1.94,Bajo,sintetico
+SYN-Z-0301,31,Femenino,25.04,34.2,Acondicionamiento general,2,Intermedio,5,90,3,Push Pull Legs,60,53,88.3,4.29,Alto,sintetico
+SYN-Z-0302,44,Masculino,17.24,18.0,Fuerza,1,Principiante,4,60,1,Upper/Lower,40,29,72.5,4.25,Alto,sintetico
+SYN-Z-0303,44,Femenino,22.9,21.7,Resistencia,2,Intermedio,3,45,3,Full Body,24,23,95.8,4.44,Alto,sintetico
+SYN-Z-0304,39,Femenino,27.18,28.3,Acondicionamiento general,1,Principiante,3,45,0,Torso/Pierna,30,19,63.3,4.25,Alto,sintetico
+SYN-Z-0305,24,Masculino,30.49,23.1,Fuerza,2,Intermedio,3,90,3,Full Body,36,22,61.1,2.04,Moderado,sintetico
+SYN-Z-0306,51,Masculino,28.24,29.1,Fuerza,1,Principiante,6,60,0,Full Body,72,69,95.8,4.24,Alto,sintetico
+SYN-Z-0307,31,Masculino,26.86,16.4,Acondicionamiento general,2,Intermedio,3,75,2,Torso/Pierna,30,20,66.7,0.87,Bajo,sintetico
+SYN-Z-0308,27,Femenino,28.22,31.3,Resistencia,2,Intermedio,6,90,2,Push Pull Legs,60,50,83.3,3.75,Moderado,sintetico
+SYN-Z-0309,47,Femenino,22.56,18.7,Fuerza,1,Principiante,4,60,3,Upper/Lower,48,45,93.8,3.14,Moderado,sintetico
+SYN-Z-0310,29,Masculino,16.93,21.6,Fuerza,1,Principiante,3,75,1,Torso/Pierna,24,23,95.8,4.16,Alto,sintetico
+SYN-Z-0311,44,Masculino,26.1,19.1,Resistencia,1,Principiante,4,60,1,Upper/Lower,24,15,62.5,2.79,Moderado,sintetico
+SYN-Z-0312,47,Femenino,22.26,30.2,Ganancia muscular,1,Principiante,2,45,1,Upper/Lower,24,18,75.0,1.82,Bajo,sintetico
+SYN-Z-0313,23,Masculino,23.53,12.5,Resistencia,2,Intermedio,5,60,4,Push Pull Legs,50,31,62.0,0.0,Bajo,sintetico
+SYN-Z-0314,43,Masculino,30.5,25.6,Fuerza,2,Intermedio,4,60,3,Upper/Lower,48,41,85.4,3.88,Moderado,sintetico
+SYN-Z-0315,58,Masculino,21.85,19.5,Ganancia muscular,1,Principiante,2,90,2,Upper/Lower,16,11,68.8,0.0,Bajo,sintetico
+SYN-Z-0316,19,Femenino,25.17,27.8,Ganancia muscular,3,Avanzado,3,45,5,Full Body,24,14,58.3,0.0,Bajo,sintetico
+SYN-Z-0317,50,Masculino,25.92,15.0,Fuerza,2,Intermedio,6,90,3,Push Pull Legs,36,26,72.2,1.97,Bajo,sintetico
+SYN-Z-0318,29,Masculino,21.65,19.2,Acondicionamiento general,1,Principiante,3,75,1,Full Body,24,18,75.0,1.49,Bajo,sintetico
+SYN-Z-0319,56,Femenino,26.34,28.0,Fuerza,2,Intermedio,3,45,1,Torso/Pierna,24,17,70.8,0.0,Bajo,sintetico
+SYN-Z-0320,58,Femenino,30.37,29.5,Ganancia muscular,1,Principiante,4,90,0,Full Body,24,16,66.7,2.92,Moderado,sintetico
+SYN-Z-0321,57,Masculino,22.13,24.6,Ganancia muscular,2,Intermedio,2,75,2,Full Body,16,13,81.2,3.13,Moderado,sintetico
+SYN-Z-0322,33,Femenino,24.26,22.7,Ganancia muscular,1,Principiante,4,90,1,Full Body,32,29,90.6,3.2,Moderado,sintetico
+SYN-Z-0323,39,Femenino,24.74,33.6,Fuerza,3,Avanzado,5,60,4,Upper/Lower,40,30,75.0,1.7,Bajo,sintetico
+SYN-Z-0324,18,Masculino,25.54,17.5,Fuerza,1,Principiante,6,60,3,Upper/Lower,48,38,79.2,3.87,Moderado,sintetico
+SYN-Z-0325,45,Femenino,22.09,33.4,Fuerza,1,Principiante,4,75,1,Torso/Pierna,32,22,68.8,3.26,Moderado,sintetico
+SYN-Z-0326,48,Masculino,28.1,18.8,Acondicionamiento general,1,Principiante,4,90,2,Upper/Lower,24,21,87.5,1.35,Bajo,sintetico
+SYN-Z-0327,45,Masculino,25.0,7.3,Fuerza,2,Intermedio,4,60,3,Torso/Pierna,40,29,72.5,3.7,Moderado,sintetico
+SYN-Z-0328,56,Femenino,26.45,29.5,Fuerza,2,Intermedio,6,45,4,Arnold Split,72,53,73.6,2.48,Moderado,sintetico
+SYN-Z-0329,44,Femenino,28.3,28.5,Ganancia muscular,2,Intermedio,4,45,4,Upper/Lower,32,28,87.5,3.72,Moderado,sintetico
+SYN-Z-0330,34,Femenino,19.88,24.4,Ganancia muscular,2,Intermedio,5,90,3,Push Pull Legs,50,42,84.0,2.44,Moderado,sintetico
+SYN-Z-0331,19,Masculino,24.19,23.6,Resistencia,2,Intermedio,3,60,5,Torso/Pierna,36,31,86.1,3.78,Moderado,sintetico
+SYN-Z-0332,23,Masculino,26.21,17.1,Resistencia,2,Intermedio,4,90,2,Upper/Lower,24,20,83.3,2.24,Moderado,sintetico
+SYN-Z-0333,40,Masculino,24.17,21.5,Resistencia,2,Intermedio,2,60,3,Full Body,24,19,79.2,2.85,Moderado,sintetico
+SYN-Z-0334,59,Femenino,24.24,24.1,Fuerza,1,Principiante,3,60,1,Torso/Pierna,24,16,66.7,1.66,Bajo,sintetico
+SYN-Z-0335,21,Masculino,25.45,15.8,Acondicionamiento general,3,Avanzado,4,45,5,Torso/Pierna,24,18,75.0,1.92,Bajo,sintetico
+SYN-Z-0336,35,Masculino,21.59,22.2,Ganancia muscular,2,Intermedio,2,75,3,Full Body,12,8,66.7,1.51,Bajo,sintetico
+SYN-Z-0337,18,Femenino,16.0,13.7,Acondicionamiento general,2,Intermedio,4,75,2,Torso/Pierna,40,36,90.0,3.28,Moderado,sintetico
+SYN-Z-0338,41,Femenino,23.51,27.9,Resistencia,1,Principiante,5,45,0,Push Pull Legs,40,24,60.0,1.54,Bajo,sintetico
+SYN-Z-0339,25,Femenino,30.86,28.2,Acondicionamiento general,1,Principiante,4,90,0,Full Body,40,23,57.5,0.57,Bajo,sintetico
+SYN-Z-0340,41,Masculino,30.91,20.3,Fuerza,2,Intermedio,4,90,3,Torso/Pierna,48,46,95.8,2.27,Moderado,sintetico
+SYN-Z-0341,48,Masculino,24.17,13.9,Fuerza,1,Principiante,5,45,3,Upper/Lower,60,39,65.0,3.17,Moderado,sintetico
+SYN-Z-0342,46,Masculino,19.54,16.2,Fuerza,1,Principiante,5,45,4,Full Body,40,38,95.0,6.0,Alto,sintetico
+SYN-Z-0343,38,Femenino,24.79,23.9,Acondicionamiento general,1,Principiante,6,45,0,Arnold Split,36,32,88.9,1.35,Bajo,sintetico
+SYN-Z-0344,39,Masculino,30.7,18.1,Resistencia,2,Intermedio,4,90,2,Torso/Pierna,32,21,65.6,0.0,Bajo,sintetico
+SYN-Z-0345,25,Femenino,25.97,29.2,Fuerza,2,Intermedio,5,45,3,Upper/Lower,60,49,81.7,2.87,Moderado,sintetico
+SYN-Z-0346,18,Femenino,29.08,32.1,Acondicionamiento general,3,Avanzado,3,75,5,Full Body,24,15,62.5,0.0,Bajo,sintetico
+SYN-Z-0347,18,Femenino,21.54,34.1,Fuerza,1,Principiante,4,90,2,Torso/Pierna,24,20,83.3,4.18,Alto,sintetico
+SYN-Z-0348,37,Masculino,23.36,27.2,Fuerza,2,Intermedio,4,90,5,Upper/Lower,32,29,90.6,4.92,Alto,sintetico
+SYN-Z-0349,32,Masculino,30.63,17.6,Acondicionamiento general,3,Avanzado,3,60,6,Torso/Pierna,36,31,86.1,3.52,Moderado,sintetico
+SYN-Z-0350,40,Femenino,20.7,29.1,Fuerza,1,Principiante,5,90,2,Push Pull Legs,30,28,93.3,4.99,Alto,sintetico
+SYN-Z-0351,37,Femenino,21.54,20.2,Acondicionamiento general,2,Intermedio,3,60,3,Full Body,18,13,72.2,4.49,Alto,sintetico
+SYN-Z-0352,54,Masculino,19.3,7.0,Acondicionamiento general,1,Principiante,5,60,2,Upper/Lower,40,38,95.0,4.24,Alto,sintetico
+SYN-Z-0353,25,Femenino,16.0,15.3,Acondicionamiento general,2,Intermedio,3,45,3,Full Body,36,32,88.9,5.39,Alto,sintetico
+SYN-Z-0354,60,Masculino,25.89,9.2,Resistencia,2,Intermedio,4,90,3,Upper/Lower,24,19,79.2,3.41,Moderado,sintetico
+SYN-Z-0355,60,Masculino,29.66,22.1,Resistencia,2,Intermedio,5,45,3,Upper/Lower,60,42,70.0,1.21,Bajo,sintetico
+SYN-Z-0356,26,Masculino,21.62,23.7,Fuerza,3,Avanzado,4,45,3,Torso/Pierna,24,19,79.2,4.4,Alto,sintetico
+SYN-Z-0357,55,Masculino,24.56,14.9,Ganancia muscular,2,Intermedio,3,60,4,Torso/Pierna,18,11,61.1,1.16,Bajo,sintetico
+SYN-Z-0358,54,Masculino,23.52,16.0,Ganancia muscular,1,Principiante,2,45,1,Full Body,24,23,95.8,4.53,Alto,sintetico
+SYN-Z-0359,60,Masculino,24.51,19.8,Resistencia,3,Avanzado,5,90,5,Upper/Lower,50,41,82.0,4.36,Alto,sintetico
+SYN-Z-0360,50,Masculino,22.26,10.2,Ganancia muscular,1,Principiante,3,75,2,Full Body,24,20,83.3,2.62,Moderado,sintetico
+SYN-Z-0361,35,Masculino,23.95,12.8,Resistencia,2,Intermedio,4,60,3,Torso/Pierna,48,46,95.8,4.9,Alto,sintetico
+SYN-Z-0362,27,Masculino,30.37,25.0,Fuerza,3,Avanzado,5,60,4,Upper/Lower,60,35,58.3,1.19,Bajo,sintetico
+SYN-Z-0363,56,Masculino,26.32,20.5,Acondicionamiento general,1,Principiante,2,45,1,Upper/Lower,16,15,93.8,5.27,Alto,sintetico
+SYN-Z-0364,32,Femenino,28.38,29.7,Acondicionamiento general,3,Avanzado,6,45,5,Arnold Split,72,45,62.5,3.12,Moderado,sintetico
+SYN-Z-0365,40,Femenino,19.31,22.2,Fuerza,3,Avanzado,3,90,5,Torso/Pierna,36,29,80.6,5.19,Alto,sintetico
+SYN-Z-0366,34,Masculino,22.05,9.6,Fuerza,2,Intermedio,4,75,5,Torso/Pierna,32,27,84.4,4.12,Alto,sintetico
+SYN-Z-0367,44,Femenino,29.28,43.3,Resistencia,2,Intermedio,3,90,1,Full Body,30,25,83.3,3.06,Moderado,sintetico
+SYN-Z-0368,23,Femenino,21.62,28.1,Ganancia muscular,1,Principiante,2,60,2,Full Body,12,11,91.7,3.9,Moderado,sintetico
+SYN-Z-0369,53,Femenino,24.71,26.7,Fuerza,3,Avanzado,4,45,3,Upper/Lower,48,41,85.4,4.55,Alto,sintetico
+SYN-Z-0370,40,Masculino,30.38,21.2,Ganancia muscular,3,Avanzado,4,60,4,Upper/Lower,32,20,62.5,0.0,Bajo,sintetico
+SYN-Z-0371,26,Femenino,28.51,27.9,Resistencia,1,Principiante,6,75,2,Full Body,60,42,70.0,1.49,Bajo,sintetico
+SYN-Z-0372,36,Femenino,26.01,36.1,Fuerza,2,Intermedio,6,45,5,Arnold Split,36,26,72.2,1.14,Bajo,sintetico
+SYN-Z-0373,57,Femenino,22.73,30.4,Fuerza,1,Principiante,4,45,2,Full Body,32,24,75.0,3.4,Moderado,sintetico
+SYN-Z-0374,49,Masculino,27.77,26.1,Acondicionamiento general,1,Principiante,4,75,1,Upper/Lower,24,23,95.8,4.94,Alto,sintetico
+SYN-Z-0375,60,Femenino,26.47,32.3,Resistencia,2,Intermedio,6,60,4,Push Pull Legs,72,54,75.0,3.18,Moderado,sintetico
+SYN-Z-0376,39,Masculino,25.92,21.9,Resistencia,2,Intermedio,3,90,1,Full Body,30,26,86.7,2.95,Moderado,sintetico
+SYN-Z-0377,43,Femenino,31.32,40.3,Fuerza,2,Intermedio,3,45,3,Torso/Pierna,36,35,97.2,3.77,Moderado,sintetico
+SYN-Z-0378,18,Femenino,21.27,26.0,Acondicionamiento general,1,Principiante,3,60,1,Upper/Lower,18,17,94.4,3.61,Moderado,sintetico
+SYN-Z-0379,33,Femenino,26.49,35.8,Fuerza,2,Intermedio,3,60,3,Full Body,30,29,96.7,5.36,Alto,sintetico
+SYN-Z-0380,27,Femenino,27.15,29.1,Acondicionamiento general,3,Avanzado,4,75,4,Upper/Lower,40,30,75.0,0.0,Bajo,sintetico
+SYN-Z-0381,21,Femenino,22.39,22.8,Resistencia,1,Principiante,6,90,2,Upper/Lower,36,21,58.3,3.59,Moderado,sintetico
+SYN-Z-0382,60,Femenino,25.57,33.4,Ganancia muscular,3,Avanzado,4,75,5,Torso/Pierna,24,15,62.5,0.86,Bajo,sintetico
+SYN-Z-0383,18,Masculino,21.29,23.7,Resistencia,1,Principiante,3,75,2,Full Body,24,20,83.3,4.57,Alto,sintetico
+SYN-Z-0384,56,Masculino,34.66,27.2,Fuerza,3,Avanzado,3,90,5,Torso/Pierna,30,26,86.7,3.44,Moderado,sintetico
+SYN-Z-0385,30,Masculino,27.01,20.5,Resistencia,2,Intermedio,6,75,4,Push Pull Legs,72,44,61.1,0.24,Bajo,sintetico
+SYN-Z-0386,44,Masculino,26.1,22.6,Resistencia,3,Avanzado,2,45,5,Full Body,24,20,83.3,1.41,Bajo,sintetico
+SYN-Z-0387,50,Masculino,27.88,27.3,Acondicionamiento general,1,Principiante,4,75,2,Torso/Pierna,32,26,81.2,3.23,Moderado,sintetico
+SYN-Z-0388,18,Femenino,18.11,23.6,Fuerza,1,Principiante,3,75,1,Full Body,24,17,70.8,1.82,Bajo,sintetico
+SYN-Z-0389,58,Masculino,27.52,18.5,Ganancia muscular,1,Principiante,5,60,2,Full Body,30,25,83.3,3.27,Moderado,sintetico
+SYN-Z-0390,58,Femenino,20.13,35.7,Resistencia,3,Avanzado,5,90,5,Push Pull Legs,30,27,90.0,3.35,Moderado,sintetico
+SYN-Z-0391,32,Femenino,29.24,41.8,Ganancia muscular,2,Intermedio,5,90,4,Push Pull Legs,60,40,66.7,1.33,Bajo,sintetico
+SYN-Z-0392,35,Masculino,18.17,10.3,Fuerza,2,Intermedio,4,90,2,Upper/Lower,48,31,64.6,3.52,Moderado,sintetico
+SYN-Z-0393,29,Masculino,26.24,24.6,Resistencia,2,Intermedio,2,60,4,Full Body,12,8,66.7,0.09,Bajo,sintetico
+SYN-Z-0394,45,Masculino,18.97,17.2,Fuerza,1,Principiante,5,45,1,Full Body,30,27,90.0,3.23,Moderado,sintetico
+SYN-Z-0395,59,Masculino,29.13,27.2,Ganancia muscular,1,Principiante,5,45,2,Push Pull Legs,50,46,92.0,4.04,Alto,sintetico
+SYN-Z-0396,23,Masculino,28.83,27.1,Fuerza,3,Avanzado,3,90,5,Torso/Pierna,18,11,61.1,1.47,Bajo,sintetico
+SYN-Z-0397,20,Masculino,22.71,16.6,Acondicionamiento general,3,Avanzado,3,60,6,Full Body,30,25,83.3,3.54,Moderado,sintetico
+SYN-Z-0398,32,Femenino,22.05,18.6,Acondicionamiento general,3,Avanzado,3,45,5,Torso/Pierna,30,18,60.0,4.21,Alto,sintetico
+SYN-Z-0399,39,Masculino,18.68,23.8,Ganancia muscular,1,Principiante,4,60,1,Full Body,48,31,64.6,1.97,Bajo,sintetico
+SYN-Z-0400,60,Femenino,22.17,23.1,Resistencia,3,Avanzado,6,75,6,Push Pull Legs,36,33,91.7,3.2,Moderado,sintetico
+SYN-Z-0401,27,Masculino,22.8,21.8,Acondicionamiento general,2,Intermedio,5,45,1,Upper/Lower,40,25,62.5,0.0,Bajo,sintetico
+SYN-Z-0402,26,Masculino,24.91,13.9,Acondicionamiento general,2,Intermedio,5,90,2,Push Pull Legs,40,29,72.5,1.15,Bajo,sintetico
+SYN-Z-0403,53,Femenino,19.98,23.4,Fuerza,2,Intermedio,4,90,1,Upper/Lower,24,16,66.7,1.29,Bajo,sintetico
+SYN-Z-0404,18,Masculino,25.24,18.6,Fuerza,2,Intermedio,6,45,4,Push Pull Legs,60,46,76.7,2.02,Moderado,sintetico
+SYN-Z-0405,53,Femenino,24.85,36.8,Fuerza,1,Principiante,3,60,1,Upper/Lower,30,18,60.0,1.21,Bajo,sintetico
+SYN-Z-0406,24,Masculino,19.19,16.3,Fuerza,1,Principiante,4,45,2,Upper/Lower,32,28,87.5,3.96,Moderado,sintetico
+SYN-Z-0407,48,Masculino,24.43,10.5,Acondicionamiento general,1,Principiante,5,90,2,Upper/Lower,30,19,63.3,0.0,Bajo,sintetico
+SYN-Z-0408,59,Masculino,22.54,15.3,Acondicionamiento general,1,Principiante,5,90,0,Push Pull Legs,50,43,86.0,2.78,Moderado,sintetico
+SYN-Z-0409,45,Masculino,24.26,20.3,Fuerza,1,Principiante,5,90,1,Full Body,30,27,90.0,3.38,Moderado,sintetico
+SYN-Z-0410,47,Femenino,22.28,32.7,Fuerza,3,Avanzado,2,75,4,Full Body,12,7,58.3,0.15,Bajo,sintetico
+SYN-Z-0411,56,Femenino,27.71,29.8,Ganancia muscular,2,Intermedio,3,45,3,Full Body,18,12,66.7,0.55,Bajo,sintetico
+SYN-Z-0412,23,Masculino,17.99,11.2,Resistencia,1,Principiante,2,75,2,Upper/Lower,24,19,79.2,2.99,Moderado,sintetico
+SYN-Z-0413,38,Femenino,22.86,13.0,Ganancia muscular,2,Intermedio,3,45,1,Full Body,36,28,77.8,2.75,Moderado,sintetico
+SYN-Z-0414,20,Femenino,27.71,35.5,Ganancia muscular,1,Principiante,6,60,3,Upper/Lower,48,47,97.9,3.22,Moderado,sintetico
+SYN-Z-0415,50,Femenino,22.49,27.0,Acondicionamiento general,1,Principiante,2,90,2,Full Body,16,13,81.2,6.0,Alto,sintetico
+SYN-Z-0416,49,Masculino,25.25,16.1,Ganancia muscular,3,Avanzado,4,90,4,Upper/Lower,24,17,70.8,4.87,Alto,sintetico
+SYN-Z-0417,41,Femenino,26.63,30.1,Resistencia,2,Intermedio,6,75,3,Push Pull Legs,36,35,97.2,3.32,Moderado,sintetico
+SYN-Z-0418,49,Masculino,22.35,20.2,Fuerza,1,Principiante,4,75,0,Torso/Pierna,48,33,68.8,3.28,Moderado,sintetico
+SYN-Z-0419,20,Masculino,24.33,14.4,Ganancia muscular,3,Avanzado,3,45,4,Torso/Pierna,18,12,66.7,2.41,Moderado,sintetico
+SYN-Z-0420,47,Masculino,21.88,21.4,Acondicionamiento general,2,Intermedio,3,60,3,Torso/Pierna,36,24,66.7,0.0,Bajo,sintetico
+SYN-Z-0421,39,Masculino,18.99,30.6,Acondicionamiento general,2,Intermedio,3,90,4,Torso/Pierna,24,20,83.3,3.51,Moderado,sintetico
+SYN-Z-0422,38,Masculino,31.38,21.4,Resistencia,1,Principiante,5,90,2,Full Body,60,41,68.3,2.7,Moderado,sintetico
+SYN-Z-0423,58,Masculino,25.81,19.9,Resistencia,1,Principiante,5,90,2,Push Pull Legs,50,33,66.0,0.45,Bajo,sintetico
+SYN-Z-0424,21,Masculino,27.84,16.9,Resistencia,3,Avanzado,3,75,6,Full Body,36,26,72.2,1.69,Bajo,sintetico
+SYN-Z-0425,54,Femenino,26.77,22.8,Fuerza,3,Avanzado,2,60,3,Full Body,12,8,66.7,5.08,Alto,sintetico
+SYN-Z-0426,47,Masculino,21.01,16.4,Acondicionamiento general,2,Intermedio,3,45,5,Full Body,36,30,83.3,3.1,Moderado,sintetico
+SYN-Z-0427,55,Masculino,30.95,23.7,Fuerza,1,Principiante,4,60,0,Torso/Pierna,24,17,70.8,4.7,Alto,sintetico
+SYN-Z-0428,41,Masculino,23.4,21.7,Ganancia muscular,2,Intermedio,5,90,2,Upper/Lower,50,31,62.0,1.82,Bajo,sintetico
+SYN-Z-0429,29,Femenino,22.25,27.4,Acondicionamiento general,2,Intermedio,4,90,2,Upper/Lower,24,22,91.7,2.66,Moderado,sintetico
+SYN-Z-0430,24,Masculino,21.24,10.9,Acondicionamiento general,1,Principiante,5,45,1,Full Body,50,46,92.0,3.06,Moderado,sintetico
+SYN-Z-0431,31,Masculino,25.35,12.5,Acondicionamiento general,1,Principiante,6,75,4,Arnold Split,72,42,58.3,0.25,Bajo,sintetico
+SYN-Z-0432,41,Masculino,21.35,16.4,Resistencia,2,Intermedio,5,90,3,Upper/Lower,30,18,60.0,0.89,Bajo,sintetico
+SYN-Z-0433,27,Femenino,27.11,23.6,Resistencia,2,Intermedio,3,90,3,Full Body,36,33,91.7,6.0,Alto,sintetico
+SYN-Z-0434,54,Femenino,28.42,34.6,Fuerza,3,Avanzado,4,75,3,Upper/Lower,32,25,78.1,2.66,Moderado,sintetico
+SYN-Z-0435,58,Femenino,27.6,23.1,Fuerza,1,Principiante,6,60,2,Full Body,48,28,58.3,0.99,Bajo,sintetico
+SYN-Z-0436,52,Masculino,23.69,17.3,Acondicionamiento general,2,Intermedio,4,75,4,Upper/Lower,40,26,65.0,3.24,Moderado,sintetico
+SYN-Z-0437,33,Femenino,25.25,20.4,Fuerza,1,Principiante,4,45,3,Full Body,24,15,62.5,3.16,Moderado,sintetico
+SYN-Z-0438,34,Masculino,28.4,23.6,Fuerza,1,Principiante,4,90,2,Upper/Lower,24,16,66.7,0.38,Bajo,sintetico
+SYN-Z-0439,44,Femenino,28.86,25.1,Fuerza,2,Intermedio,3,45,4,Full Body,18,17,94.4,3.35,Moderado,sintetico
+SYN-Z-0440,40,Femenino,29.91,30.0,Resistencia,1,Principiante,6,60,1,Upper/Lower,48,44,91.7,3.17,Moderado,sintetico
+SYN-Z-0441,25,Masculino,26.65,20.0,Fuerza,1,Principiante,3,90,2,Torso/Pierna,30,23,76.7,3.21,Moderado,sintetico
+SYN-Z-0442,49,Femenino,20.47,24.7,Fuerza,1,Principiante,3,75,2,Torso/Pierna,30,19,63.3,1.19,Bajo,sintetico
+SYN-Z-0443,31,Femenino,20.53,27.3,Resistencia,2,Intermedio,5,45,2,Upper/Lower,50,47,94.0,3.54,Moderado,sintetico
+SYN-Z-0444,22,Femenino,25.02,28.7,Acondicionamiento general,2,Intermedio,3,75,3,Torso/Pierna,36,32,88.9,4.27,Alto,sintetico
+SYN-Z-0445,40,Masculino,29.75,24.4,Resistencia,1,Principiante,3,75,1,Full Body,36,29,80.6,1.15,Bajo,sintetico
+SYN-Z-0446,38,Masculino,20.84,14.4,Fuerza,2,Intermedio,3,75,2,Full Body,36,31,86.1,0.54,Bajo,sintetico
+SYN-Z-0447,45,Femenino,25.53,24.8,Acondicionamiento general,1,Principiante,4,75,1,Full Body,40,33,82.5,3.57,Moderado,sintetico
+SYN-Z-0448,33,Masculino,23.25,24.6,Ganancia muscular,3,Avanzado,6,75,6,Push Pull Legs,36,26,72.2,4.71,Alto,sintetico
+SYN-Z-0449,19,Masculino,17.11,16.0,Resistencia,1,Principiante,3,75,0,Upper/Lower,36,30,83.3,4.3,Alto,sintetico
+SYN-Z-0450,43,Femenino,23.05,21.3,Ganancia muscular,3,Avanzado,5,45,5,Push Pull Legs,40,25,62.5,1.32,Bajo,sintetico
+SYN-Z-0451,38,Femenino,24.75,29.5,Resistencia,2,Intermedio,5,45,5,Upper/Lower,30,19,63.3,0.28,Bajo,sintetico
+SYN-Z-0452,37,Masculino,23.97,25.6,Acondicionamiento general,2,Intermedio,3,60,4,Full Body,24,17,70.8,1.3,Bajo,sintetico
+SYN-Z-0453,27,Femenino,20.62,19.5,Fuerza,2,Intermedio,4,90,4,Torso/Pierna,32,20,62.5,1.08,Bajo,sintetico
+SYN-Z-0454,36,Masculino,19.92,23.3,Fuerza,1,Principiante,5,45,2,Full Body,40,31,77.5,2.67,Moderado,sintetico
+SYN-Z-0455,42,Masculino,20.86,16.6,Resistencia,2,Intermedio,5,75,3,Push Pull Legs,40,27,67.5,0.0,Bajo,sintetico
+SYN-Z-0456,41,Femenino,32.45,30.1,Acondicionamiento general,2,Intermedio,3,75,2,Full Body,24,18,75.0,3.42,Moderado,sintetico
+SYN-Z-0457,24,Masculino,25.0,29.1,Ganancia muscular,1,Principiante,4,90,1,Torso/Pierna,24,17,70.8,2.6,Moderado,sintetico
+SYN-Z-0458,31,Masculino,21.11,19.6,Acondicionamiento general,1,Principiante,3,45,2,Upper/Lower,24,17,70.8,2.47,Moderado,sintetico
+SYN-Z-0459,43,Masculino,20.42,12.6,Acondicionamiento general,2,Intermedio,3,45,1,Full Body,18,11,61.1,0.0,Bajo,sintetico
+SYN-Z-0460,20,Femenino,24.85,33.6,Acondicionamiento general,1,Principiante,4,45,2,Torso/Pierna,40,31,77.5,5.13,Alto,sintetico
+SYN-Z-0461,28,Masculino,22.6,20.6,Ganancia muscular,2,Intermedio,2,90,3,Full Body,16,11,68.8,0.0,Bajo,sintetico
+SYN-Z-0462,22,Masculino,27.79,30.0,Ganancia muscular,1,Principiante,5,90,1,Upper/Lower,30,19,63.3,2.03,Moderado,sintetico
+SYN-Z-0463,18,Femenino,29.7,28.9,Fuerza,2,Intermedio,4,45,4,Torso/Pierna,32,25,78.1,1.28,Bajo,sintetico
+SYN-Z-0464,28,Masculino,24.79,16.2,Resistencia,2,Intermedio,4,75,4,Torso/Pierna,40,29,72.5,2.19,Moderado,sintetico
+SYN-Z-0465,18,Femenino,23.36,30.9,Acondicionamiento general,2,Intermedio,3,45,4,Full Body,24,17,70.8,3.15,Moderado,sintetico
+SYN-Z-0466,19,Masculino,19.05,11.7,Fuerza,2,Intermedio,5,60,4,Push Pull Legs,50,47,94.0,3.79,Moderado,sintetico
+SYN-Z-0467,52,Femenino,32.65,30.9,Resistencia,1,Principiante,6,90,0,Push Pull Legs,60,39,65.0,0.0,Bajo,sintetico
+SYN-Z-0468,55,Femenino,25.53,25.6,Resistencia,2,Intermedio,3,45,1,Torso/Pierna,24,19,79.2,2.93,Moderado,sintetico
+SYN-Z-0469,36,Masculino,23.41,21.6,Ganancia muscular,2,Intermedio,4,60,3,Upper/Lower,48,34,70.8,3.79,Moderado,sintetico
+SYN-Z-0470,45,Femenino,24.42,27.1,Resistencia,1,Principiante,5,60,3,Full Body,40,30,75.0,1.91,Bajo,sintetico
+SYN-Z-0471,23,Femenino,25.38,33.3,Acondicionamiento general,1,Principiante,4,45,3,Torso/Pierna,40,26,65.0,0.0,Bajo,sintetico
+SYN-Z-0472,45,Femenino,25.23,25.1,Resistencia,2,Intermedio,3,60,3,Torso/Pierna,24,18,75.0,3.02,Moderado,sintetico
+SYN-Z-0473,45,Masculino,27.28,23.9,Resistencia,1,Principiante,4,90,0,Upper/Lower,24,23,95.8,5.27,Alto,sintetico
+SYN-Z-0474,19,Femenino,26.37,29.8,Fuerza,3,Avanzado,4,75,5,Torso/Pierna,24,21,87.5,4.92,Alto,sintetico
+SYN-Z-0475,43,Masculino,24.14,18.4,Acondicionamiento general,2,Intermedio,5,45,5,Push Pull Legs,50,41,82.0,4.02,Alto,sintetico
+SYN-Z-0476,36,Femenino,21.58,16.4,Ganancia muscular,1,Principiante,5,60,0,Full Body,40,38,95.0,3.21,Moderado,sintetico
+SYN-Z-0477,58,Masculino,23.41,21.8,Ganancia muscular,3,Avanzado,5,60,5,Arnold Split,30,24,80.0,3.01,Moderado,sintetico
+SYN-Z-0478,33,Masculino,25.21,19.3,Acondicionamiento general,2,Intermedio,2,45,3,Full Body,16,15,93.8,5.8,Alto,sintetico
+SYN-Z-0479,52,Femenino,27.13,21.9,Ganancia muscular,3,Avanzado,4,45,5,Upper/Lower,32,25,78.1,5.01,Alto,sintetico
+SYN-Z-0480,52,Masculino,21.23,17.1,Acondicionamiento general,2,Intermedio,4,75,2,Upper/Lower,48,36,75.0,3.77,Moderado,sintetico
+SYN-Z-0481,45,Masculino,28.85,21.6,Ganancia muscular,2,Intermedio,4,45,2,Torso/Pierna,24,23,95.8,2.41,Moderado,sintetico
+SYN-Z-0482,40,Masculino,18.22,16.4,Fuerza,1,Principiante,4,60,1,Upper/Lower,24,16,66.7,3.32,Moderado,sintetico
+SYN-Z-0483,27,Femenino,21.63,20.4,Fuerza,2,Intermedio,3,75,3,Torso/Pierna,36,35,97.2,4.49,Alto,sintetico
+SYN-Z-0484,56,Masculino,16.36,8.5,Resistencia,2,Intermedio,3,75,2,Torso/Pierna,18,11,61.1,0.2,Bajo,sintetico
+SYN-Z-0485,28,Masculino,26.06,20.5,Acondicionamiento general,3,Avanzado,3,60,6,Full Body,18,17,94.4,4.16,Alto,sintetico
+SYN-Z-0486,29,Femenino,24.65,22.1,Resistencia,1,Principiante,3,45,1,Torso/Pierna,18,17,94.4,4.89,Alto,sintetico
+SYN-Z-0487,38,Masculino,23.27,13.0,Fuerza,3,Avanzado,3,90,4,Full Body,24,18,75.0,2.91,Moderado,sintetico
+SYN-Z-0488,51,Masculino,25.26,19.3,Ganancia muscular,3,Avanzado,3,60,5,Torso/Pierna,18,13,72.2,1.46,Bajo,sintetico
+SYN-Z-0489,59,Femenino,25.5,31.0,Resistencia,3,Avanzado,4,60,5,Torso/Pierna,24,19,79.2,1.6,Bajo,sintetico
+SYN-Z-0490,26,Femenino,28.29,32.8,Resistencia,1,Principiante,2,75,2,Upper/Lower,12,11,91.7,3.71,Moderado,sintetico
+SYN-Z-0491,28,Femenino,29.17,32.8,Resistencia,3,Avanzado,4,45,2,Torso/Pierna,40,34,85.0,2.72,Moderado,sintetico
+SYN-Z-0492,20,Femenino,22.14,27.6,Ganancia muscular,3,Avanzado,3,75,6,Full Body,24,19,79.2,2.04,Moderado,sintetico
+SYN-Z-0493,54,Masculino,23.63,19.4,Ganancia muscular,1,Principiante,6,90,2,Full Body,36,21,58.3,0.49,Bajo,sintetico
+SYN-Z-0494,50,Masculino,22.01,12.6,Fuerza,1,Principiante,2,45,3,Full Body,24,20,83.3,3.7,Moderado,sintetico
+SYN-Z-0495,19,Femenino,30.95,33.6,Acondicionamiento general,2,Intermedio,5,60,3,Upper/Lower,50,33,66.0,2.03,Moderado,sintetico
+SYN-Z-0496,45,Masculino,24.63,20.5,Acondicionamiento general,1,Principiante,5,45,2,Push Pull Legs,40,36,90.0,3.99,Moderado,sintetico
+SYN-Z-0497,22,Masculino,26.27,21.5,Resistencia,1,Principiante,4,60,2,Upper/Lower,48,40,83.3,3.32,Moderado,sintetico
+SYN-Z-0498,60,Masculino,32.88,28.3,Resistencia,1,Principiante,6,60,1,Push Pull Legs,60,56,93.3,4.71,Alto,sintetico
+SYN-Z-0499,33,Femenino,22.41,31.8,Resistencia,1,Principiante,6,90,1,Upper/Lower,48,34,70.8,2.94,Moderado,sintetico
+SYN-Z-0500,53,Masculino,29.11,26.4,Ganancia muscular,2,Intermedio,6,90,2,Push Pull Legs,36,28,77.8,1.62,Bajo,sintetico

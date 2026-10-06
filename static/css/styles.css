@@ -145,12 +145,29 @@ nav a:hover {
     max-width: 720px;
 }
 
+.card-stack {
+    max-width: var(--max-form);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-stack .card-section {
+    max-width: none;
+    margin: 0;
+}
+
 .card-section {
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.25rem;
     margin-bottom: 1rem;
+    max-width: var(--max-form);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .card-section h3 {
@@ -395,6 +412,54 @@ nav a:hover {
     letter-spacing: 0.06em;
 }
 
+.bmi-classification {
+    display: inline-block;
+    margin: 0.25rem 0 0.35rem;
+    padding: 0.2rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    background-color: rgba(225, 29, 46, 0.08);
+}
+
+.bmi-scale {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.bmi-scale h4 {
+    margin: 0 0 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.bmi-scale ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 320px;
+}
+
+.bmi-scale li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.bmi-scale li .label {
+    color: var(--text);
+}
+
 .note {
     color: var(--muted);
     font-size: 0.85rem;
@@ -417,7 +482,9 @@ nav a:hover {
 
 .actions .btn {
     width: auto;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 0.7rem 1.25rem;
     text-align: center;
     text-decoration: none;
 }
@@ -502,6 +569,66 @@ nav a:hover {
     font-size: 0.85rem;
     padding: 1.5rem 0;
     border-top: 1px solid var(--border);
+}
+
+/* ---------- Tabla de ejercicios ---------- */
+
+.exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.exercise-table th {
+    text-align: left;
+    color: var(--muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.exercise-table td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.exercise-table tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.status-active {
+    border: 1px solid #16a34a;
+    color: #86efac;
+    background-color: rgba(22, 163, 74, 0.12);
+}
+
+.status-inactive {
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    background-color: rgba(156, 163, 175, 0.08);
+}
+
+.exercise-actions a {
+    margin-right: 0.6rem;
+    font-size: 0.85rem;
+}
+
+.exercise-actions .danger-link {
+    color: var(--accent);
+}
+
+.exercise-actions .danger-link:hover {
+    color: var(--accent-hover);
 }
 
 /* ---------- Responsive ---------- */

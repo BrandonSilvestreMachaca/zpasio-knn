@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{{ routine.name }} — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">{{ routine.name }}</h2>
+
+<div class="card-stack">
+    <div class="card-section">
+        <h3>Detalle de la rutina</h3>
+        <ul class="data-list">
+            <li><span class="label">Nombre</span><span class="value">{{ routine.name }}</span></li>
+            <li><span class="label">Objetivo</span><span class="value">{{ routine.get_goal_display }}</span></li>
+            <li><span class="label">Nivel</span><span class="value">{{ routine.get_level_display }}</span></li>
+            <li><span class="label">Intensidad</span><span class="value">{{ routine.get_intensity_display }}</span></li>
+            <li><span class="label">Frecuencia</span><span class="value">{{ routine.days_per_week }} días/semana</span></li>
+            <li><span class="label">Duración estimada</span><span class="value">{{ routine.estimated_duration_minutes }} minutos</span></li>
+            <li><span class="label">Estado</span><span class="value">{{ routine.is_active|yesno:"Activa,Inactiva" }}</span></li>
+            <li><span class="label">Creada</span><span class="value">{{ routine.created_at|date:"d/m/Y H:i" }}</span></li>
+            <li><span class="label">Actualizada</span><span class="value">{{ routine.updated_at|date:"d/m/Y H:i" }}</span></li>
+        </ul>
+    </div>
+
+    {% if routine.description %}
+    <div class="card-section">
+        <h3>Descripción</h3>
+        <p>{{ routine.description|linebreaksbr }}</p>
+    </div>
+    {% endif %}
+
+    {% if session_blocks %}
+        {% for session, items in session_blocks %}
+        <div class="card-section">
+            <h3>Día {{ session.order }} — {{ session.name }}</h3>
+            <ul class="data-list">
+                {% for item in items %}
+                <li>
+                    <span class="label">{{ item.order }}. {{ item.exercise.name }} ({{ item.exercise.get_muscle_group_display }})</span>
+                    <span class="value">
+                        {% if item.repetitions is not None %}
+                            {{ item.sets }} series × {{ item.repetitions }} repeticiones
+                        {% else %}
+                            {{ item.sets }} series × {{ item.duration_seconds }} segundos
+                        {% endif %}
+                        — Descanso: {{ item.rest_seconds }} s
+                    </span>
+                </li>
+                {% empty %}
+                <li>Esta sesión todavía no tiene ejercicios.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+        {% if loose_items %}
+        <div class="card-section">
+            <h3>Ejercicios sin sesión asignada</h3>
+            <ul class="data-list">
+                {% for item in loose_items %}
+                <li>
+                    <span class="label">{{ item.order }}. {{ item.exercise.name }} ({{ item.exercise.get_muscle_group_display }})</span>
+                    <span class="value">
+                        {% if item.repetitions is not None %}
+                            {{ item.sets }} series × {{ item.repetitions }} repeticiones
+                        {% else %}
+                            {{ item.sets }} series × {{ item.duration_seconds }} segundos
+                        {% endif %}
+                        — Descanso: {{ item.rest_seconds }} s
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    {% else %}
+    <div class="card-section">
+        <h3>Ejercicios</h3>
+        <ul class="data-list">
+            {% for item in routine.routine_exercises.all %}
+            <li>
+                <span class="label">{{ item.order }}. {{ item.exercise.name }} ({{ item.exercise.get_muscle_group_display }})</span>
+                <span class="value">
+                    {% if item.repetitions is not None %}
+                        {{ item.sets }} series × {{ item.repetitions }} repeticiones
+                    {% else %}
+                        {{ item.sets }} series × {{ item.duration_seconds }} segundos
+                    {% endif %}
+                    — Descanso: {{ item.rest_seconds }} s
+                </span>
+            </li>
+            {% empty %}
+            <li>Esta rutina todavía no tiene ejercicios.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'routines:list' %}">Volver al listado</a>
+    {% if user.is_entrenador %}
+        <a class="btn" href="{% url 'routines:update' routine.pk %}">Editar</a>
+        <a class="btn btn-secondary" href="{% url 'routines:delete' routine.pk %}">Eliminar</a>
+    {% endif %}
+</div>
+{% endblock %}

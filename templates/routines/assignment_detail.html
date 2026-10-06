@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de asignación — Zpasio{% endblock %}
+
+{% block content %}
+<div class="card-stack">
+    <div class="card-section">
+        <h3>RUTINA ASIGNADA</h3>
+        <ul class="data-list">
+            <li><span class="label">Usuario</span><span class="value">{{ assignment.user.full_name|default:assignment.user.username }}</span></li>
+            <li><span class="label">Entrenador</span><span class="value">{{ assignment.trainer.full_name|default:assignment.trainer.username }}</span></li>
+            <li><span class="label">Rutina</span><span class="value">{{ assignment.routine.name }}</span></li>
+            <li><span class="label">Fecha inicio</span><span class="value">{{ assignment.start_date|date:"d/m/Y" }}</span></li>
+            <li><span class="label">Fecha fin</span><span class="value">{% if assignment.end_date %}{{ assignment.end_date|date:"d/m/Y" }}{% else %}—{% endif %}</span></li>
+            <li><span class="label">Estado</span><span class="value">
+                <span class="status-badge
+                    {% if assignment.status == 'EN_PROGRESO' %}status-active{% endif %}
+                    {% if assignment.status == 'FINALIZADA' %}status-inactive{% endif %}
+                    {% if assignment.status == 'CANCELADA' %}status-inactive{% endif %}
+                    {% if assignment.status == 'ASIGNADA' %}status-active{% endif %}
+                ">
+                    {{ assignment.get_status_display }}
+                </span>
+            </span></li>
+            <li><span class="label">Sesiones planificadas</span><span class="value">{{ assignment.planned_sessions }}</span></li>
+            <li><span class="label">Sesiones realizadas</span><span class="value">{{ assignment.completed_sessions }}</span></li>
+            <li><span class="label">Adherencia</span><span class="value">
+                {% if assignment.adherence_percentage is not None %}
+                    {{ assignment.adherence_percentage }}%
+                {% else %}
+                    — (sin sesiones planificadas)
+                {% endif %}
+            </span></li>
+        </ul>
+    </div>
+
+    {% if assignment.initial_evaluation %}
+    <div class="card-section">
+        <h3>EVALUACIÓN INICIAL</h3>
+        <ul class="data-list">
+            <li><span class="label">Fecha</span><span class="value">{{ assignment.initial_evaluation.conducted_at|date:"d/m/Y" }}</span></li>
+            <li><span class="label">Entrenador</span><span class="value">{{ assignment.initial_evaluation.trainer.username }}</span></li>
+        </ul>
+        {% if assignment.initial_evaluation.results.all %}
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Prueba</th><th>Valor</th><th>Unidad</th><th>Nota</th></tr>
+            </thead>
+            <tbody>
+                {% for result in assignment.initial_evaluation.results.all %}
+                <tr>
+                    <td>{{ result.test_name }}</td>
+                    <td>{{ result.value }}</td>
+                    <td>{{ result.unit }}</td>
+                    <td>{{ result.notes|default:"—" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">Sin resultados registrados.</p>
+        {% endif %}
+        <div class="actions">
+            <a class="btn btn-secondary" href="{% url 'assessments:detail' assignment.initial_evaluation.pk %}">Ver evaluación completa</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="card-section">
+        <h3>EVALUACIÓN INICIAL</h3>
+        <p class="note">No se ha vinculado una evaluación inicial a esta asignación.</p>
+    </div>
+    {% endif %}
+
+    {% if assignment.final_evaluation %}
+    <div class="card-section">
+        <h3>EVALUACIÓN FINAL</h3>
+        <ul class="data-list">
+            <li><span class="label">Fecha</span><span class="value">{{ assignment.final_evaluation.conducted_at|date:"d/m/Y" }}</span></li>
+            <li><span class="label">Entrenador</span><span class="value">{{ assignment.final_evaluation.trainer.username }}</span></li>
+        </ul>
+        {% if assignment.final_evaluation.results.all %}
+        <table class="exercise-table">
+            <thead>
+                <tr><th>Prueba</th><th>Valor</th><th>Unidad</th><th>Nota</th></tr>
+            </thead>
+            <tbody>
+                {% for result in assignment.final_evaluation.results.all %}
+                <tr>
+                    <td>{{ result.test_name }}</td>
+                    <td>{{ result.value }}</td>
+                    <td>{{ result.unit }}</td>
+                    <td>{{ result.notes|default:"—" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">Sin resultados registrados.</p>
+        {% endif %}
+        <div class="actions">
+            <a class="btn btn-secondary" href="{% url 'assessments:detail' assignment.final_evaluation.pk %}">Ver evaluación completa</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="card-section">
+        <h3>EVALUACIÓN FINAL</h3>
+        <p class="note">Evaluación final pendiente</p>
+    </div>
+    {% endif %}
+
+    {% if assignment.observations %}
+    <div class="card-section">
+        <h3>OBSERVACIONES</h3>
+        <p>{{ assignment.observations|linebreaks }}</p>
+    </div>
+    {% endif %}
+
+    <div class="actions">
+        {% if user.is_entrenador %}
+        <a class="btn" href="{% url 'routines:assignment_update' assignment.pk %}">Editar asignación</a>
+        {% endif %}
+        {% if user.is_entrenador %}
+        <a class="btn btn-secondary" href="{% url 'profiles:client_detail' assignment.user.username %}">Volver al cliente</a>
+        {% else %}
+        <a class="btn btn-secondary" href="{% url 'profiles:detail' %}">Volver a mi perfil</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

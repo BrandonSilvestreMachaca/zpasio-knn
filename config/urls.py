@@ -7,4 +7,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.accounts.urls")),
     path("perfil/", include("apps.profiles.urls")),
+    path("ejercicios/", include("apps.exercises.urls")),
+    path("rutinas/", include("apps.routines.urls")),
+    path("evaluaciones/", include("apps.assessments.urls")),
 ]

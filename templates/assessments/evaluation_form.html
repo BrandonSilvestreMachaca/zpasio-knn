@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Nueva evaluación — Zpasio{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Nueva evaluación física — {{ client.full_name|default:client.username }}</h2>
+
+<form method="post" class="form" novalidate>
+    {% csrf_token %}
+
+    <div class="card-section" style="max-width: 720px;">
+        <h3>Datos de la evaluación</h3>
+        {% for field in form %}
+            <p>
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}{% if field.field.required %} <span class="required">*</span>{% endif %}
+                </label>
+                {{ field }}
+                {% if field.help_text %}<span class="help-text">{{ field.help_text }}</span>{% endif %}
+                {% for error in field.errors %}
+                    <div class="errorlist">{{ error }}</div>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="errorlist">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="card-section" style="max-width: 720px;">
+        <h3>Resultados de las pruebas</h3>
+        <p class="help-text">
+            Registrá únicamente resultados observables de pruebas definidas:
+            nombre de la prueba, valor obtenido y unidad (p. ej. repeticiones,
+            segundos, cm).
+        </p>
+        {{ formset.management_form }}
+        {% if formset.non_form_errors %}
+            {% for error in formset.non_form_errors %}
+                <div class="errorlist">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        {% for rform in formset %}
+            <fieldset style="border: 1px solid var(--border, #333); border-radius: 6px; margin-bottom: 12px; padding: 10px;">
+                <legend>Prueba {{ forloop.counter }}</legend>
+                {% for field in rform %}
+                    {% if field.name != "id" %}
+                    <p>
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}{% if field.field.required %} <span class="required">*</span>{% endif %}
+                        </label>
+                        {{ field }}
+                        {% if field.help_text %}<span class="help-text">{{ field.help_text }}</span>{% endif %}
+                        {% for error in field.errors %}
+                            <div class="errorlist">{{ error }}</div>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+        {% endfor %}
+    </div>
+
+    <button class="btn" type="submit">Registrar evaluación</button>
+</form>
+
+<div class="actions">
+    <a class="btn btn-secondary" href="{% url 'profiles:client_detail' client.username %}">Cancelar</a>
+</div>
+{% endblock %}
