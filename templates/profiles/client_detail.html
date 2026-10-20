@@ -90,6 +90,7 @@
         <p class="note">Este cliente todavía no tiene rutinas asignadas.</p>
         {% endif %}
         <div class="actions">
+            <a class="btn" href="{% url 'recommendations:generate' client.username %}">Generar recomendación KNN</a>
             <a class="btn" href="{% url 'routines:assignment_create' client.username %}">+ Asignar rutina</a>
         </div>
     </div>

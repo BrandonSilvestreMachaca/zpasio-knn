@@ -198,11 +198,21 @@ def assignment_create_view(request, username):
     """Crea una asignación de rutina para un usuario (solo entrenador).
 
     El usuario se determina por el parámetro username en la URL.
+    Opcionalmente se puede pre-seleccionar una rutina vía query parameter ?routine=<pk>.
     """
     from django.contrib.auth import get_user_model
 
     User = get_user_model()
     client = get_object_or_404(User, username=username, role=User.Role.USUARIO)
+
+    # Pre-seleccionar rutina si viene en query parameter
+    initial = {}
+    routine_pk = request.GET.get("routine")
+    if routine_pk:
+        from .models import Routine
+        routine = Routine.objects.filter(pk=routine_pk, is_active=True).first()
+        if routine:
+            initial["routine"] = routine.pk
 
     if request.method == "POST":
         form = UserRoutineAssignmentForm(
@@ -216,7 +226,7 @@ def assignment_create_view(request, username):
             messages.success(request, _("Rutina asignada correctamente."))
             return redirect("profiles:client_detail", username=client.username)
     else:
-        form = UserRoutineAssignmentForm(user=client, trainer=request.user)
+        form = UserRoutineAssignmentForm(user=client, trainer=request.user, initial=initial)
 
     return render(
         request,

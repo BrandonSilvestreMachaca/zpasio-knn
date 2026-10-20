@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load recommendation_filters %}
+
+{% block title %}Recomendación KNN — {{ client.username }}{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <h2>Recomendación KNN para {{ client.full_name|default:client.username }}</h2>
+    <span class="role-tag">{{ client.get_role_display }}</span>
+</div>
+
+{% if result.success %}
+    <div class="alert alert-warning" style="margin-bottom: 1.5rem;">
+        <strong>AVISO:</strong> Esta recomendación corresponde a un prototipo experimental basado
+        actualmente en datos sintéticos y no representa todavía una validación
+        con datos históricos reales del Gimnasio Zpasio.
+    </div>
+
+    <div class="card-section">
+        <h3>Rutina sugerida</h3>
+        <div class="data-list" style="font-size: 1.25rem; font-weight: 600;">
+            {{ result.recommended_routine }}
+        </div>
+    </div>
+
+    <div class="card-section">
+        <h3>Detalles de la predicción</h3>
+        <ul class="data-list">
+            <li><span class="label">Vecinos analizados (K)</span><span class="value">{{ result.neighbors_analyzed }}</span></li>
+            <li><span class="label">Vecinos de la clase predicha</span><span class="value">{{ result.cases }}</span></li>
+            <li><span class="label">Distancia promedio a vecinos de la clase</span><span class="value">{% if result.cases == 0 %}Sin vecinos{% else %}{{ result.avg_distance|default:"-"|floatformat:4 }}{% endif %}</span></li>
+        </ul>
+    </div>
+
+    <div class="card-section">
+        <h3>Distribución de votos entre los {{ result.neighbors_analyzed }} vecinos</h3>
+        {% if result.vote_details %}
+        <table class="exercise-table">
+            <thead>
+                <tr>
+                    <th>Rutina</th>
+                    <th>Proporción de votos</th>
+                    <th>Vecinos de esta clase</th>
+                    <th>Distancia promedio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vd in result.vote_details %}
+                <tr {% if forloop.first %}style="font-weight: 600;"{% endif %}>
+                    <td>{{ vd.rutina_zpasio }}</td>
+                    <td>{{ vd.proporcion_votos|floatformat:4 }} ({{ vd.proporcion_votos|porcentaje|floatformat:2 }}%)</td>
+                    <td>{{ vd.vecinos_cercanos }}</td>
+                    <td>{% if vd.vecinos_cercanos == 0 %}Sin vecinos{% else %}{{ vd.distancia_promedio|default:"-"|floatformat:4 }}{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="note">No hay detalles de votación disponibles.</p>
+        {% endif %}
+    </div>
+
+    <div class="card-section">
+        <h3>Acciones</h3>
+        <div class="actions">
+            {% if result.success and matched_routine %}
+                <a class="btn" href="{% url 'routines:detail' matched_routine.pk %}">Ver rutina</a>
+                <a class="btn" href="{% url 'routines:assignment_create' client.username %}?routine={{ matched_routine.pk }}">Asignar esta rutina</a>
+            {% elif result.success %}
+                <a class="btn" href="{% url 'routines:assignment_create' client.username %}">Asignar rutina</a>
+            {% endif %}
+            <a class="btn btn-secondary" href="{% url 'profiles:client_detail' client.username %}">Volver al perfil</a>
+        </div>
+    </div>
+
+{% else %}
+    <div class="alert alert-error" style="margin-bottom: 1.5rem;">
+        <strong>No se pudo generar la recomendación:</strong>
+        <pre style="white-space: pre-wrap; margin-top: 0.5rem;">{{ result.message }}</pre>
+    </div>
+
+    <div class="card-section">
+        <h3>Datos del usuario utilizados</h3>
+        <ul class="data-list">
+            {% for key, value in features.items %}
+            <li>
+                <span class="label">{{ key }}</span>
+                <span class="value">{{ value|default:"— (faltante)" }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-secondary" href="{% url 'profiles:client_detail' client.username %}">Volver al perfil</a>
+    </div>
+{% endif %}
+{% endblock %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path("ejercicios/", include("apps.exercises.urls")),
     path("rutinas/", include("apps.routines.urls")),
     path("evaluaciones/", include("apps.assessments.urls")),
+    path("recomendaciones/", include("apps.recommendations.urls")),
 ]
