@@ -42,12 +42,14 @@ class KNNRecommendationService:
         "sexo": {
             "MASCULINO": "Masculino",
             "FEMENINO": "Femenino",
+            "OTRO": "Otro",
+            "PREFIERO_NO_DECIR": "Prefiero no decirlo",
         },
         "objetivo": {
+            "PERDIDA_PESO": "Pérdida de peso",
             "GANANCIA_MUSCULAR": "Ganancia muscular",
-            "FUERZA": "Fuerza",
+            "MANTENIMIENTO": "Mantenimiento",
             "RESISTENCIA": "Resistencia",
-            "ACONDICIONAMIENTO_GENERAL": "Acondicionamiento general",
         },
         "experiencia": {
             "PRINCIPIANTE": "Principiante",

@@ -352,17 +352,41 @@ class KNNRecommendationServiceTests(TestCase):
         normalized = self.service.normalize_categories(user_data)
         self.assertEqual(normalized["sexo"], "Femenino")
 
+    def test_normalize_categories_sexo_otro(self):
+        """Verifica que OTRO se transforma a Otro."""
+        user_data = {"sexo": "OTRO"}
+        normalized = self.service.normalize_categories(user_data)
+        self.assertEqual(normalized["sexo"], "Otro")
+
+    def test_normalize_categories_sexo_prefiero_no_decir(self):
+        """Verifica que PREFIERO_NO_DECIR se transforma a Prefiero no decirlo."""
+        user_data = {"sexo": "PREFIERO_NO_DECIR"}
+        normalized = self.service.normalize_categories(user_data)
+        self.assertEqual(normalized["sexo"], "Prefiero no decirlo")
+
     def test_normalize_categories_objetivo_ganancia_muscular(self):
         """Verifica que GANANCIA_MUSCULAR se transforma correctamente."""
         user_data = {"objetivo": "GANANCIA_MUSCULAR"}
         normalized = self.service.normalize_categories(user_data)
         self.assertEqual(normalized["objetivo"], "Ganancia muscular")
 
-    def test_normalize_categories_objetivo_acondicionamiento_general(self):
-        """Verifica que ACONDICIONAMIENTO_GENERAL se transforma correctamente."""
-        user_data = {"objetivo": "ACONDICIONAMIENTO_GENERAL"}
+    def test_normalize_categories_objetivo_perdida_peso(self):
+        """Verifica que PERDIDA_PESO se transforma correctamente."""
+        user_data = {"objetivo": "PERDIDA_PESO"}
         normalized = self.service.normalize_categories(user_data)
-        self.assertEqual(normalized["objetivo"], "Acondicionamiento general")
+        self.assertEqual(normalized["objetivo"], "Pérdida de peso")
+
+    def test_normalize_categories_objetivo_mantenimiento(self):
+        """Verifica que MANTENIMIENTO se transforma correctamente."""
+        user_data = {"objetivo": "MANTENIMIENTO"}
+        normalized = self.service.normalize_categories(user_data)
+        self.assertEqual(normalized["objetivo"], "Mantenimiento")
+
+    def test_normalize_categories_objetivo_resistencia(self):
+        """Verifica que RESISTENCIA se transforma correctamente."""
+        user_data = {"objetivo": "RESISTENCIA"}
+        normalized = self.service.normalize_categories(user_data)
+        self.assertEqual(normalized["objetivo"], "Resistencia")
 
     def test_normalize_categories_experiencia_all(self):
         """Verifica que PRINCIPIANTE/INTERMEDIO/AVANZADO se transforman correctamente."""
@@ -386,12 +410,12 @@ class KNNRecommendationServiceTests(TestCase):
             "tiempo_sesion_minutos": 60,
             "frecuencia_previa": 2,
             "sexo": "FEMENINO",
-            "objetivo": "FUERZA",
+            "objetivo": "RESISTENCIA",
             "experiencia": "AVANZADO",
         }
         normalized = self.service.normalize_categories(user_data)
         self.assertEqual(normalized["sexo"], "Femenino")
-        self.assertEqual(normalized["objetivo"], "Fuerza")
+        self.assertEqual(normalized["objetivo"], "Resistencia")
         self.assertEqual(normalized["experiencia"], "Avanzado")
         self.assertEqual(normalized["edad"], 25)
 

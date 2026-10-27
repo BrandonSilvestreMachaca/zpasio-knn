@@ -27,8 +27,8 @@ logger = logging.getLogger(__name__)
 
 
 def _log_invalid_form(request, form, formset):
-    """Diagnóstico temporal: registra por qué falló la validación."""
-    logger.warning(
+    """Registra errores de validación para diagnóstico (nivel DEBUG)."""
+    logger.debug(
         "Formulario de rutina inválido (user=%s). form.errors=%s "
         "formset.errors=%s formset.non_form_errors=%s",
         request.user, form.errors.as_data(), formset.errors,
