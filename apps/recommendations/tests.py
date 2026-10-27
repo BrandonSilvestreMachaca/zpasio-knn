@@ -435,7 +435,7 @@ class RoutineMappingTests(TestCase):
             is_active=True,
         )
         self.routine_ppl = Routine.objects.create(
-            name="Push Pull Legs",
+            name="Push Pull Legs (PPL)",
             goal="MANTENIMIENTO",
             level="INTERMEDIO",
             days_per_week=6,
@@ -487,8 +487,8 @@ class RoutineMappingTests(TestCase):
         self.assertEqual(KNN_TO_ROUTINE_NAME_MAP["Torso/Pierna"], "Torso / Pierna")
 
     def test_mapping_push_pull_legs_exact(self):
-        """Verifica que Push Pull Legs mapea a sí mismo (coincidencia exacta)."""
-        self.assertEqual(KNN_TO_ROUTINE_NAME_MAP["Push Pull Legs"], "Push Pull Legs")
+        """Verifica que Push Pull Legs mapea a Push Pull Legs (PPL)."""
+        self.assertEqual(KNN_TO_ROUTINE_NAME_MAP["Push Pull Legs"], "Push Pull Legs (PPL)")
 
     def test_mapping_full_body_exact(self):
         """Verifica que Full Body mapea a sí mismo (coincidencia exacta)."""
@@ -516,7 +516,7 @@ class RoutineMappingTests(TestCase):
         """Verifica búsqueda de rutina por nombre KNN Push Pull Legs."""
         routine = get_routine_by_knn_name("Push Pull Legs")
         self.assertIsNotNone(routine)
-        self.assertEqual(routine.name, "Push Pull Legs")
+        self.assertEqual(routine.name, "Push Pull Legs (PPL)")
         self.assertEqual(routine.pk, self.routine_ppl.pk)
 
     def test_get_routine_by_knn_name_full_body(self):
@@ -1193,7 +1193,7 @@ class RecommendationViewsTests(TestCase):
     def test_recomendacion_push_pull_legs_enlace_exacto(self, mock_service):
         """21. Push Pull Legs usa coincidencia exacta sin espacios."""
         routine = Routine.objects.create(
-            name="Push Pull Legs",
+            name="Push Pull Legs (PPL)",
             goal="MANTENIMIENTO",
             level="INTERMEDIO",
             days_per_week=6,

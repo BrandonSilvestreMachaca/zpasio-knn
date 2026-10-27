@@ -10,7 +10,7 @@ from apps.routines.models import Routine
 KNN_TO_ROUTINE_NAME_MAP = {
     "Upper/Lower": "Upper / Lower",
     "Torso/Pierna": "Torso / Pierna",
-    "Push Pull Legs": "Push Pull Legs",
+    "Push Pull Legs": "Push Pull Legs (PPL)",
     "Full Body": "Full Body",
     "Arnold Split": "Arnold Split",
 }
