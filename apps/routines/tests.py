@@ -1184,6 +1184,100 @@ class UserRoutineAssignmentViewTests(TestCase):
         # No se duplica la rutina
         self.assertEqual(Routine.objects.count(), 1)
 
+    def test_trainer_can_update_assignment(self):
+        assignment = UserRoutineAssignment.objects.create(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+            status="ASIGNADA",
+            planned_sessions=10,
+            completed_sessions=5,
+        )
+        self.client.force_login(self.trainer)
+        url = reverse("routines:assignment_update", kwargs={"pk": assignment.pk})
+        response = self.client.post(
+            url,
+            {
+                "routine": self.routine.pk,
+                "start_date": "2026-01-01",
+                "status": "EN_PROGRESO",
+                "planned_sessions": "20",
+                "completed_sessions": "15",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        assignment.refresh_from_db()
+        self.assertEqual(assignment.status, "EN_PROGRESO")
+        self.assertEqual(assignment.planned_sessions, 20)
+        self.assertEqual(assignment.completed_sessions, 15)
+
+    def test_user_cannot_update_assignment(self):
+        assignment = UserRoutineAssignment.objects.create(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+        )
+        self.client.force_login(self.client_user)
+        url = reverse("routines:assignment_update", kwargs={"pk": assignment.pk})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 403)
+        response = self.client.post(
+            url,
+            {"routine": self.routine.pk, "start_date": "2026-01-01"},
+        )
+        self.assertEqual(response.status_code, 403)
+        assignment.refresh_from_db()
+        self.assertEqual(assignment.status, "ASIGNADA")
+
+    def test_anonymous_redirected_to_login_on_update(self):
+        assignment = UserRoutineAssignment.objects.create(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+        )
+        url = reverse("routines:assignment_update", kwargs={"pk": assignment.pk})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("/login/", response.url)
+
+    def test_trainer_can_update_assignment_with_evaluations(self):
+        from apps.assessments.models import PhysicalEvaluation
+        initial_eval = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="INICIAL"
+        )
+        final_eval = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="FINAL"
+        )
+        assignment = UserRoutineAssignment.objects.create(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+        )
+        self.client.force_login(self.trainer)
+        url = reverse("routines:assignment_update", kwargs={"pk": assignment.pk})
+        response = self.client.post(
+            url,
+            {
+                "routine": self.routine.pk,
+                "start_date": "2026-01-01",
+                "status": "FINALIZADA",
+                "initial_evaluation": initial_eval.pk,
+                "final_evaluation": final_eval.pk,
+                "planned_sessions": "20",
+                "completed_sessions": "20",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        assignment.refresh_from_db()
+        self.assertEqual(assignment.status, "FINALIZADA")
+        self.assertEqual(assignment.initial_evaluation, initial_eval)
+        self.assertEqual(assignment.final_evaluation, final_eval)
+        self.assertEqual(assignment.adherence_percentage, 100.0)
+
 
 # =============================================================================
 # Pruebas de regresión para transacciones atómicas y validaciones
