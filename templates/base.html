@@ -1,53 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Zpasio{% endblock %}</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
-    <header class="navbar">
-        <div class="nav-container">
-            <a class="brand" href="{% url 'profiles:detail' %}">Z<span class="brand-accent">pasio</span></a>
-            <nav>
-                {% if user.is_authenticated %}
-                    <span class="nav-user">{{ user.full_name|default:user.username }}</span>
-                    <a href="{% url 'profiles:detail' %}">Mi perfil</a>
-                    <a href="{% url 'exercises:list' %}">Ejercicios</a>
-                    <a href="{% url 'routines:list' %}">Rutinas</a>
-                    {% if user.is_entrenador %}
-                        <a href="{% url 'profiles:client_list' %}">Clientes</a>
-                    {% endif %}
-                    <form class="nav-logout" method="post" action="{% url 'accounts:logout' %}">
-                        {% csrf_token %}
-                        <button type="submit" class="link-button">Cerrar sesión</button>
-                    </form>
-                {% else %}
+<body class="{% if user.is_authenticated %}app-body{% else %}auth-body{% endif %}">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+    {% if user.is_authenticated %}
+        {% include "partials/sidebar.html" %}
+        <div class="app-nav-overlay" data-nav-close></div>
+    {% else %}
+        <header class="auth-header">
+            <div class="auth-header-inner">
+                <a class="brand" href="{% url 'accounts:login' %}">Z<span class="brand-accent">pasio</span></a>
+                <nav class="auth-nav" aria-label="Acceso">
                     <a href="{% url 'accounts:login' %}">Iniciar sesión</a>
                     <a href="{% url 'accounts:register' %}">Registrarse</a>
-                {% endif %}
-            </nav>
-        </div>
-    </header>
+                </nav>
+            </div>
+        </header>
+    {% endif %}
 
-    <main class="container">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li class="message {{ message.tags }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
+    <div class="{% if user.is_authenticated %}app-frame{% else %}auth-frame{% endif %}">
+        {% if user.is_authenticated %}
+            {% include "partials/topbar.html" %}
         {% endif %}
 
-        {% block content %}{% endblock %}
-    </main>
+        <main id="main-content" class="container" tabindex="-1">
+            {% include "partials/messages.html" %}
+            {% block content %}{% endblock %}
+        </main>
 
-    <footer class="footer">
-        <p>Zpasio — Sistema de gestión del gimnasio</p>
-    </footer>
+        <footer class="footer">
+            <p>Zpasio — Sistema de gestión del gimnasio</p>
+        </footer>
+    </div>
 
+    {% if user.is_authenticated %}
+        <script src="{% static 'js/app-shell.js' %}"></script>
+    {% endif %}
     {% block scripts %}{% endblock %}
 </body>
 </html>

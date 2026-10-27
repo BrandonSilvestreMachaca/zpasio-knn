@@ -1,0 +1,19 @@
+<header class="app-topbar">
+    <button
+        type="button"
+        class="app-nav-toggle"
+        data-nav-toggle
+        aria-controls="app-sidebar"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+    >
+        <span class="app-nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+    <p class="app-topbar-title">Zpasio</p>
+    <div class="app-topbar-user">
+        <span class="nav-user">{{ user.full_name|default:user.username }}</span>
+        {% if user.get_role_display %}
+            <span class="role-tag">{{ user.get_role_display }}</span>
+        {% endif %}
+    </div>
+</header>

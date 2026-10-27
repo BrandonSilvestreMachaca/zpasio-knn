@@ -1,0 +1,53 @@
+{% with ns=request.resolver_match.namespace name=request.resolver_match.url_name %}
+<aside id="app-sidebar" class="app-sidebar" aria-label="Navegación principal">
+    <div class="app-sidebar-header">
+        <a class="brand" href="{% url 'profiles:detail' %}">Z<span class="brand-accent">pasio</span></a>
+        <button type="button" class="app-nav-close" data-nav-close aria-label="Cerrar menú">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <nav class="app-nav" aria-label="Secciones">
+        <a
+            class="app-nav-link{% if ns == 'profiles' and name != 'client_list' and name != 'client_detail' %} is-active{% endif %}"
+            href="{% url 'profiles:detail' %}"
+        >Inicio</a>
+
+        {% if user.is_entrenador %}
+            <a
+                class="app-nav-link{% if ns == 'profiles' and name == 'client_list' or ns == 'profiles' and name == 'client_detail' %} is-active{% endif %}"
+                href="{% url 'profiles:client_list' %}"
+            >Clientes</a>
+            <a
+                class="app-nav-link{% if ns == 'routines' and name == 'assignment_list' or ns == 'routines' and name == 'assignment_create' or ns == 'routines' and name == 'assignment_detail' or ns == 'routines' and name == 'assignment_update' %} is-active{% endif %}"
+                href="{% url 'routines:assignment_list' %}"
+            >Asignaciones</a>
+        {% else %}
+            <a
+                class="app-nav-link{% if ns == 'routines' and name == 'assignment_list' or ns == 'routines' and name == 'assignment_detail' %} is-active{% endif %}"
+                href="{% url 'routines:assignment_list' %}"
+            >Mis rutinas</a>
+            <a
+                class="app-nav-link{% if ns == 'assessments' %} is-active{% endif %}"
+                href="{% url 'assessments:list' %}"
+            >Evaluaciones</a>
+        {% endif %}
+
+        <a
+            class="app-nav-link{% if ns == 'routines' and name != 'assignment_list' and name != 'assignment_create' and name != 'assignment_detail' and name != 'assignment_update' %} is-active{% endif %}"
+            href="{% url 'routines:list' %}"
+        >Rutinas</a>
+        <a
+            class="app-nav-link{% if ns == 'exercises' %} is-active{% endif %}"
+            href="{% url 'exercises:list' %}"
+        >Ejercicios</a>
+    </nav>
+
+    <div class="app-sidebar-footer">
+        <form class="nav-logout" method="post" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="link-button app-logout">Cerrar sesión</button>
+        </form>
+    </div>
+</aside>
+{% endwith %}
