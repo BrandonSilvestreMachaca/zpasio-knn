@@ -3,65 +3,71 @@
 {% block title %}Registro — Zpasio{% endblock %}
 
 {% block content %}
-<h1 class="page-title">Crear cuenta</h1>
-<p class="page-subtitle">Regístrate y comienza tu plan de entrenamiento.</p>
+<div class="auth-page">
+    <div class="auth-card">
+        <header class="auth-card-header">
+            <h1 class="page-title">Crear cuenta</h1>
+            <p class="page-subtitle">Regístrate y comienza tu plan de entrenamiento.</p>
+        </header>
 
-<form method="post" class="form" novalidate>
-    {% csrf_token %}
+        <form method="post" class="auth-form" novalidate>
+            {% csrf_token %}
 
-    {% if form.non_field_errors %}
-        <ul class="errorlist">
-            {% for error in form.non_field_errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+            {% if form.non_field_errors %}
+                <ul class="errorlist">
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
-    <div class="form-row">
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.username.errors }}
-        {% if form.username.help_text %}<span class="help-text">{{ form.username.help_text|safe }}</span>{% endif %}
+            <div class="form-row">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+                {% if form.username.help_text %}<span class="help-text">{{ form.username.help_text|safe }}</span>{% endif %}
+            </div>
+
+            <div class="form-row">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+                {{ form.first_name.errors }}
+            </div>
+
+            <div class="form-row">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+
+            <div class="form-row">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="form-row password-field">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+                {{ form.password1.errors }}
+                {% if form.password1.help_text %}<span class="help-text">{{ form.password1.help_text|safe }}</span>{% endif %}
+            </div>
+
+            <div class="form-row password-field">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+                {{ form.password2.errors }}
+                {% if form.password2.help_text %}<span class="help-text">{{ form.password2.help_text|safe }}</span>{% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+
+        <p class="auth-footer-link">¿Ya tienes cuenta? <a href="{% url 'accounts:login' %}">Inicia sesión</a></p>
     </div>
-
-    <div class="form-row">
-        {{ form.first_name.label_tag }}
-        {{ form.first_name }}
-        {{ form.first_name.errors }}
-    </div>
-
-    <div class="form-row">
-        {{ form.last_name.label_tag }}
-        {{ form.last_name }}
-        {{ form.last_name.errors }}
-    </div>
-
-    <div class="form-row">
-        {{ form.email.label_tag }}
-        {{ form.email }}
-        {{ form.email.errors }}
-    </div>
-
-    <div class="form-row password-field">
-        {{ form.password1.label_tag }}
-        {{ form.password1 }}
-        <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
-        {{ form.password1.errors }}
-        {% if form.password1.help_text %}<span class="help-text">{{ form.password1.help_text|safe }}</span>{% endif %}
-    </div>
-
-    <div class="form-row password-field">
-        {{ form.password2.label_tag }}
-        {{ form.password2 }}
-        <button type="button" class="password-toggle" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
-        {{ form.password2.errors }}
-        {% if form.password2.help_text %}<span class="help-text">{{ form.password2.help_text|safe }}</span>{% endif %}
-    </div>
-
-    <button type="submit" class="btn">Registrarse</button>
-
-    <p class="btn-link">¿Ya tienes cuenta? <a href="{% url 'accounts:login' %}">Inicia sesión</a></p>
-</form>
+</div>
 {% endblock %}
 
 {% block scripts %}
