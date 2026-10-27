@@ -1,5 +1,6 @@
 """Pruebas del módulo de gestión de rutinas de Zpasio."""
 
+from django.core.exceptions import ValidationError
 from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
@@ -1182,3 +1183,296 @@ class UserRoutineAssignmentViewTests(TestCase):
         self.assertEqual(assignment.routine, self.routine)
         # No se duplica la rutina
         self.assertEqual(Routine.objects.count(), 1)
+
+
+# =============================================================================
+# Pruebas de regresión para transacciones atómicas y validaciones
+# =============================================================================
+
+
+class RoutineAtomicTransactionTests(TestCase):
+    """Verifica que las operaciones de rutina + ejercicios sean atómicas."""
+
+    def setUp(self):
+        self.trainer = make_user("trainer", "ENTRENADOR")
+        self.ex1 = make_exercise("Press de banca")
+        self.ex2 = make_exercise("Sentadilla", muscle="PIERNAS")
+        self.client.force_login(self.trainer)
+
+    def _routine_data(self, **overrides):
+        data = {
+            "name": "Rutina atómica",
+            "description": "Test",
+            "goal": "GANANCIA_MUSCULAR",
+            "level": "PRINCIPIANTE",
+            "intensity": "MODERADA",
+            "days_per_week": "3",
+            "estimated_duration_minutes": "50",
+        }
+        data.update(overrides)
+        return data
+
+    def test_create_routine_rollback_on_formset_validation_error(self):
+        """Si el formset falla, no se crea la rutina (rollback atómico)."""
+        # Payload con ejercicio duplicado en el formset -> error de validación
+        payload = {
+            **self._routine_data(),
+            **formset_payload(
+                (self.ex1.pk, 1, 3, 10, None, 60),
+                (self.ex1.pk, 2, 3, 8, None, 60),  # Duplicado
+            ),
+        }
+        response = self.client.post(reverse("routines:create"), payload)
+        self.assertEqual(response.status_code, 200)
+        # No debe crear rutina ni ejercicios de rutina
+        self.assertEqual(Routine.objects.count(), 0)
+        self.assertEqual(RoutineExercise.objects.count(), 0)
+
+    def test_update_routine_rollback_on_formset_validation_error(self):
+        """Si el formset falla en actualización, no se modifica la rutina."""
+        routine = Routine.objects.create(
+            name="Original", goal="MANTENIMIENTO", level="INTERMEDIO"
+        )
+        RoutineExercise.objects.create(
+            routine=routine, exercise=self.ex1, order=1, sets=3, repetitions=10, rest_seconds=60
+        )
+        original_name = routine.name
+
+        # Payload con error de validación (repeticiones + duración)
+        payload = {
+            **self._routine_data(name="Editada"),
+            **formset_payload((self.ex1.pk, 1, 3, 10, 30, 60)),  # reps + duración
+        }
+        response = self.client.post(
+            reverse("routines:update", kwargs={"pk": routine.pk}), payload
+        )
+        self.assertEqual(response.status_code, 200)
+        routine.refresh_from_db()
+        # La rutina no debe haber cambiado
+        self.assertEqual(routine.name, original_name)
+
+
+class AssignmentAtomicTransactionTests(TestCase):
+    """Verifica transacciones atómicas en asignaciones."""
+
+    def setUp(self):
+        self.trainer = make_user("trainer", "ENTRENADOR")
+        self.client_user = make_user("client", "USUARIO")
+        self.other_trainer = make_user("trainer2", "ENTRENADOR")
+        self.routine = Routine.objects.create(
+            name="Test Routine", goal="GANANCIA_MUSCULAR", level="PRINCIPIANTE"
+        )
+        self.client.force_login(self.trainer)
+
+    def _assignment_payload(self, **overrides):
+        from datetime import date
+        data = {
+            "routine": self.routine.pk,
+            "start_date": date.today().isoformat(),
+            "end_date": "",
+            "status": "ASIGNADA",
+            "initial_evaluation": "",
+            "final_evaluation": "",
+            "planned_sessions": "20",
+            "completed_sessions": "18",
+            "observations": "Test",
+        }
+        data.update(overrides)
+        return data
+
+    def test_create_assignment_validates_trainer_role(self):
+        """El formulario rechaza asignaciones con trainer no ENTRENADOR."""
+        # El formulario asigna trainer=request.user (que es ENTRENADOR),
+        # pero probamos la validación a nivel de modelo directamente
+        plain_user = make_user("plain", "USUARIO")
+        assignment = UserRoutineAssignment(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=plain_user,  # USUARIO, no ENTRENADOR
+            start_date="2026-01-01",
+        )
+        with self.assertRaises(ValidationError):
+            assignment.full_clean()
+
+    def test_create_assignment_validates_user_role(self):
+        """El formulario rechaza asignaciones con usuario no USUARIO."""
+        assignment = UserRoutineAssignment(
+            user=self.trainer,  # ENTRENADOR como usuario
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+        )
+        with self.assertRaises(ValidationError):
+            assignment.full_clean()
+
+    def test_create_assignment_validates_evaluation_types(self):
+        """Valida que evaluaciones inicial/final sean del tipo correcto."""
+        from apps.assessments.models import PhysicalEvaluation
+        seguimiento = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="SEGUIMIENTO"
+        )
+        assignment = UserRoutineAssignment(
+            user=self.client_user,
+            routine=self.routine,
+            trainer=self.trainer,
+            start_date="2026-01-01",
+            initial_evaluation=seguimiento,  # Tipo incorrecto
+        )
+        with self.assertRaises(ValidationError):
+            assignment.full_clean()
+
+    def test_form_save_runs_model_clean(self):
+        """Verifica que form.save() ejecuta model.clean() (validaciones de rol, fechas, etc.)."""
+        from apps.assessments.models import PhysicalEvaluation
+        initial_eval = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="INICIAL"
+        )
+        final_eval = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="FINAL"
+        )
+
+        # Payload válido
+        payload = self._assignment_payload(
+            initial_evaluation=initial_eval.pk,
+            final_evaluation=final_eval.pk,
+        )
+        response = self.client.post(
+            reverse("routines:assignment_create", kwargs={"username": "client"}), payload
+        )
+        # Debug: si falla, mostrar errores
+        if response.status_code != 302:
+            print(f"Response status: {response.status_code}")
+            if hasattr(response, 'context') and response.context and 'form' in response.context:
+                print(f"Form errors: {response.context['form'].errors}")
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(UserRoutineAssignment.objects.count(), 1)
+
+        # Payload con evaluación final de tipo incorrecto
+        wrong_final = PhysicalEvaluation.objects.create(
+            user=self.client_user, trainer=self.trainer, evaluation_type="INICIAL"
+        )
+        payload = self._assignment_payload(
+            initial_evaluation=initial_eval.pk,
+            final_evaluation=wrong_final.pk,
+        )
+        response = self.client.post(
+            reverse("routines:assignment_create", kwargs={"username": "client"}), payload
+        )
+        # Debe mostrar error de validación, no crear asignación
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(UserRoutineAssignment.objects.count(), 1)  # Solo la primera
+
+
+class RoutineExerciseModelValidationTests(TestCase):
+    """Validaciones del modelo RoutineExercise."""
+
+    def setUp(self):
+        self.routine = Routine.objects.create(
+            name="R", goal="MANTENIMIENTO", level="INTERMEDIO"
+        )
+        self.other_routine = Routine.objects.create(
+            name="Otra", goal="MANTENIMIENTO", level="PRINCIPIANTE"
+        )
+        self.exercise = Exercise.objects.create(
+            name="Remo", muscle_group="ESPALDA", difficulty="PRINCIPIANTE"
+        )
+
+    def test_session_must_belong_to_same_routine(self):
+        """RoutineExercise.clean() valida que la sesión pertenezca a la rutina."""
+        foreign_session = RoutineSession.objects.create(
+            routine=self.other_routine, name="S1"
+        )
+        item = RoutineExercise(
+            routine=self.routine,
+            exercise=self.exercise,
+            session=foreign_session,
+            sets=3,
+            repetitions=10,
+        )
+        with self.assertRaises(ValidationError):
+            item.full_clean()
+
+    def test_repetitions_or_duration_required(self):
+        """Debe tener repeticiones O duración, no ninguna ni ambas."""
+        # Sin ninguna
+        item = RoutineExercise(
+            routine=self.routine, exercise=self.exercise, sets=3
+        )
+        with self.assertRaises(ValidationError):
+            item.full_clean()
+
+        # Con ambas
+        item = RoutineExercise(
+            routine=self.routine,
+            exercise=self.exercise,
+            sets=3,
+            repetitions=10,
+            duration_seconds=30,
+        )
+        with self.assertRaises(ValidationError):
+            item.full_clean()
+
+        # Solo repeticiones - válido
+        item = RoutineExercise(
+            routine=self.routine, exercise=self.exercise, sets=3, repetitions=10
+        )
+        item.full_clean()  # No debe lanzar
+
+        # Solo duración - válido
+        item = RoutineExercise(
+            routine=self.routine, exercise=self.exercise, sets=3, duration_seconds=30
+        )
+        item.full_clean()  # No debe lanzar
+
+
+class EvaluationAtomicTransactionTests(TestCase):
+    """Verifica transacciones atómicas en evaluaciones."""
+
+    def setUp(self):
+        self.trainer = make_user("trainer", "ENTRENADOR")
+        self.client_user = make_user("client", "USUARIO")
+        self.client.force_login(self.trainer)
+
+    def test_create_evaluation_rollback_on_formset_error(self):
+        """Si el formset de resultados falla, no se crea la evaluación."""
+        payload = {
+            "evaluation_type": "INICIAL",
+            "observations": "",
+            "results-TOTAL_FORMS": "2",
+            "results-INITIAL_FORMS": "0",
+            "results-MIN_NUM_FORMS": "0",
+            "results-MAX_NUM_FORMS": "1000",
+            "results-0-test_name": "Flexiones",
+            "results-0-value": "-5",  # Valor negativo -> error
+            "results-0-unit": "repeticiones",
+            "results-0-notes": "",
+            "results-1-test_name": "Plancha",
+            "results-1-value": "60",
+            "results-1-unit": "segundos",
+            "results-1-notes": "",
+        }
+        response = self.client.post(
+            reverse("assessments:create", kwargs={"username": "client"}), payload
+        )
+        self.assertEqual(response.status_code, 200)
+        # No debe crear evaluación ni resultados
+        from apps.assessments.models import PhysicalEvaluation, EvaluationResult
+        self.assertEqual(PhysicalEvaluation.objects.count(), 0)
+        self.assertEqual(EvaluationResult.objects.count(), 0)
+
+    def test_create_evaluation_needs_at_least_one_result(self):
+        """Una evaluación requiere al menos un resultado."""
+        payload = {
+            "evaluation_type": "INICIAL",
+            "observations": "",
+            "results-TOTAL_FORMS": "0",
+            "results-INITIAL_FORMS": "0",
+            "results-MIN_NUM_FORMS": "0",
+            "results-MAX_NUM_FORMS": "1000",
+        }
+        response = self.client.post(
+            reverse("assessments:create", kwargs={"username": "client"}), payload
+        )
+        self.assertEqual(response.status_code, 200)
+        from apps.assessments.models import PhysicalEvaluation
+        self.assertEqual(PhysicalEvaluation.objects.count(), 0)

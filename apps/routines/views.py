@@ -9,6 +9,7 @@ import logging
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
 
@@ -94,9 +95,10 @@ def routine_create_view(request):
         form = RoutineForm(request.POST)
         formset = RoutineExerciseFormSet(request.POST, instance=Routine())
         if form.is_valid() and formset.is_valid():
-            routine = form.save()
-            formset.instance = routine
-            formset.save()
+            with transaction.atomic():
+                routine = form.save()
+                formset.instance = routine
+                formset.save()
             messages.success(request, _("Rutina creada correctamente."))
             return redirect("routines:detail", pk=routine.pk)
         _log_invalid_form(request, form, formset)
@@ -119,8 +121,9 @@ def routine_update_view(request, pk):
         form = RoutineForm(request.POST, instance=routine)
         formset = RoutineExerciseFormSet(request.POST, instance=routine)
         if form.is_valid() and formset.is_valid():
-            form.save()
-            formset.save()
+            with transaction.atomic():
+                form.save()
+                formset.save()
             messages.success(request, _("Rutina actualizada correctamente."))
             return redirect("routines:detail", pk=routine.pk)
         _log_invalid_form(request, form, formset)
@@ -219,10 +222,8 @@ def assignment_create_view(request, username):
             request.POST, user=client, trainer=request.user
         )
         if form.is_valid():
-            assignment = form.save(commit=False)
-            assignment.user = client
-            assignment.trainer = request.user
-            assignment.save()
+            with transaction.atomic():
+                form.save()
             messages.success(request, _("Rutina asignada correctamente."))
             return redirect("profiles:client_detail", username=client.username)
     else:
@@ -272,7 +273,8 @@ def assignment_update_view(request, pk):
             request.POST, instance=assignment, user=assignment.user, trainer=request.user
         )
         if form.is_valid():
-            form.save()
+            with transaction.atomic():
+                form.save()
             messages.success(request, _("Asignación actualizada correctamente."))
             return redirect("routines:assignment_detail", pk=assignment.pk)
     else:

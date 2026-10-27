@@ -9,6 +9,7 @@ Política de permisos (aplicada en backend, no solo ocultando botones):
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
@@ -46,12 +47,13 @@ def evaluation_create_view(request, username):
             request.POST, instance=PhysicalEvaluation()
         )
         if form.is_valid() and formset.is_valid():
-            evaluation = form.save(commit=False)
-            evaluation.user = client
-            evaluation.trainer = request.user
-            evaluation.save()
-            formset.instance = evaluation
-            formset.save()
+            with transaction.atomic():
+                evaluation = form.save(commit=False)
+                evaluation.user = client
+                evaluation.trainer = request.user
+                evaluation.save()
+                formset.instance = evaluation
+                formset.save()
             messages.success(
                 request, _("Evaluación registrada correctamente.")
             )

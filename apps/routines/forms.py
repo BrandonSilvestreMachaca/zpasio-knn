@@ -185,4 +185,24 @@ class UserRoutineAssignmentForm(forms.ModelForm):
                 _("Las sesiones realizadas no pueden superar las planificadas."),
             )
 
+        # Asignar user y trainer a la instancia para que model.clean() pueda validar correctamente
+        # Django's ModelForm llama a instance.full_clean() durante form.full_clean()
+        if self.user is not None:
+            self.instance.user = self.user
+        if self.trainer is not None:
+            self.instance.trainer = self.trainer
+
         return cleaned_data
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        # Asignar user y trainer si están disponibles en el formulario
+        if self.user is not None:
+            instance.user = self.user
+        if self.trainer is not None:
+            instance.trainer = self.trainer
+        # Ejecutar validaciones del modelo (incluye clean())
+        instance.full_clean()
+        if commit:
+            instance.save()
+        return instance
